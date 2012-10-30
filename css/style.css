@@ -7,6 +7,14 @@ svg {
   cursor:crosshair;
 }
 
+#county_state {
+width: 290px;
+float: left;
+}
+#pop {
+    float: right;
+}
+
 #counties path {
   stroke: #fff;
   stroke-width: .25px;

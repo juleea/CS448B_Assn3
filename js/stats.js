@@ -29,6 +29,8 @@ d3.json("js/us-counties.json", function(json) {
       .attr("class", data ? quantize : null) // color counties
       .attr("d", path)
       .on("mouseover", function(d){
+        $('#county_state').html(data[d.id]["county"] + ", " + data[d.id]["state"]);
+        $('#pop').html("Population: " + data[d.id]["population"]);
         $('#info_name').html(data[d.id]["county"]);
         $('#info_state').html(data[d.id]["state"]);
         $('#info_population').html("<b>" + data[d.id]["population"] + "</b>");
@@ -42,6 +44,9 @@ d3.json("js/us-counties.json", function(json) {
       })
       .on("mousemove", function(d){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+15)+"px").text(data[d.id]["name"]);})
       .on("mouseout", function(){
+
+        $('#county_state').html("Hover over county for more info");
+        $('#pop').html("&nbsp");
         $('#info_name').html("&nbsp");
         $('#info_state').html("&nbsp");
         $('#info_population').html("&nbsp");
@@ -118,7 +123,17 @@ function quantize(d) {
   }
 }
 
-
+$(function() {
+    $(".checkbox").hide("fast");
+    $("#sliders").hover(
+        function() {
+            $(".checkbox").fadeIn();
+        },
+        function() {
+            $(".checkbox").fadeOut();
+        }
+        );
+    });
 
 function redraw() {
   svg.attr("transform",
