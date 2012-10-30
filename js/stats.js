@@ -69,7 +69,7 @@ d3.json("js/data.json", function(json) {
 
 params = {
 female_headed: {color:"Bluesq",min:0,max:45,set_max:45},
-poverty_children: {color:"q",min:0,max:60,set_max:60},
+poverty_children: {color:"q",min:0,max:62,set_max:62},
 poverty: {color:"Redsq",min:0,max:51,set_max:51},
 unemployment: {color:"Greensq",min:0,max:30,set_max:30},
 no_hs: {color:"RdPuq",min:0,max:55,set_max:55}
@@ -158,8 +158,8 @@ $(function(){
     range: true,
     rangeDrag: true,
     min:0,
-    max:60,
-    values: [45, 60],
+    max:62,
+    values: [45, 62],
     slide: function( event, ui ) {
       $( "#poverty_children_amount" ).html( ui.values[0] + "% - " + ui.values[1] + "%");
       adjust_range("poverty_children",ui.values[0], ui.values[1]);
