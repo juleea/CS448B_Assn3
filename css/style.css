@@ -1,0 +1,342 @@
+svg {
+  background: #555;
+  width: 959px;
+  height: 500px;
+  border: 1px solid rgb(49, 163, 84);
+  border-radius: 15px;
+  cursor:crosshair;
+}
+
+#counties path {
+  stroke: #fff;
+  stroke-width: .25px;
+}
+
+#states path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.overlap {
+	fill:#000;
+}
+
+.ignore {
+	fill:#eee;
+}
+
+#sliders .instructions {
+	font-size: 12px;
+}
+
+.slider_label {	
+#font-size:20px;
+	border: 0px;
+	width: 150px;
+	background: none;
+}
+
+#female_headed_slider_container p {
+	margin: 10px 0px 5px 0px;
+}
+
+#poverty_children_slider_container p {
+	margin: 20px 0px 5px 0px;	
+}
+
+#female_headed_slider .ui-slider-range {
+#background:rgb(165,15,21);
+	background:rgb(8,81,156);
+}
+
+#female_headed_slider .ui-state-hover {
+#	background:rgb(254,224,210);
+#	border:1px solid rgb(165,15,21);
+	background:rgb(222,235,247);
+	border:1px solid rgb(8,48,107);
+
+}
+
+#female_headed_slider .ui-state-focus {
+#	background:rgb(254,224,210);
+#	border:1px solid rgb(165,15,21);
+	background:rgb(222,235,247);
+	border:1px solid rgb(8,48,107);
+
+}
+
+#female_headed_slider .ui-slider-handle {
+#	border:1px solid rgb(165,15,21);
+	border:1px solid rgb(8,48,107);
+}
+
+#poverty_children_slider .ui-slider-range {
+	background:rgb(117,107,177);
+}
+
+#poverty_children_slider .ui-state-hover {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#poverty_children_slider .ui-state-focus {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#poverty_children_slider .ui-slider-handle {
+	border:1px solid rgb(117,107,177);
+}
+
+#poverty_children_slider .ui-slider-range {
+	background:rgb(117,107,177);
+}
+
+#no_hs_slider .ui-state-hover {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#no_hs_slider .ui-state-focus {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#no_hs_slider .ui-slider-handle {
+	border:1px solid rgb(197, 27, 138);
+}
+
+#no_hs_slider .ui-slider-range {
+	background:rgb(197, 27, 138);
+}
+
+#poverty_slider .ui-state-hover {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#poverty_slider .ui-state-focus {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#poverty_slider .ui-slider-handle {
+	border:1px solid rgb(222, 45, 38);
+}
+
+#poverty_slider .ui-slider-range {
+	background:rgb(222, 45, 38);
+}
+
+
+#unemployment_slider .ui-state-hover {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#unemployment_slider .ui-state-focus {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#unemployment_slider .ui-slider-handle {
+	border:1px solid rgb(49, 163, 84);
+}
+
+#unemployment_slider .ui-slider-range {
+	background:rgb(49, 163, 84);
+}
+
+.ui-disabled {
+	opacity:.5;
+}
+
+body {	
+	font-family: 'Titillium Web', sans-serif;
+    background: #000000;
+    color:#ffffff;
+}
+
+#tooltip {
+	position: absolute;
+	z-index:10;
+	visibility:hidden;
+	background:white;
+	opacity:.75;
+}
+
+#chart {
+	cursor: crosshair;
+	position: relative;
+	margin-top: 20px;
+}
+
+#sliders {
+	float:left;
+	width: 46%;
+	background: #111;
+	padding: 15px;
+	border: 2px solid rgb(117, 107, 177);
+	border-radius: 15px;
+	height: 390px;
+}
+
+#county_info {
+	position:relative;
+    background: #111;
+	float:right;
+	width: 46%;
+	padding: 15px;
+	border: 2px solid #336699;
+	border-radius: 15px;
+	height: 410px;
+    color:#ebebeb;
+}
+
+#county_info p {
+	margin-bottom:20px;
+}
+
+.p_additional {
+	font-size:14px;
+}
+
+#poverty_children_label span {
+	font-size:10px;
+}
+
+#p_info_pop {
+	position: absolute;
+	top: 55px;
+	left: 250px;
+	padding-right:10px;
+}
+
+#county_info p {
+	font-size: 14px;
+}
+
+#county_info span {
+	font-size:15px;
+}
+
+#info_name {
+	width: 200px;
+}
+
+#container{
+	width:962px;
+	margin-left:auto;
+	margin-right:auto;
+	position: relative;
+}
+
+.checkbox_label{
+	float:right;
+	padding-top:2px;
+	font-size: 14px;
+}
+
+.checkbox {
+	float:right;
+	height:20px;
+	width:20px;
+}
+
+.legend_span { float: left; font-size: 12px; padding-left: 1px;}
+
+#olegend {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+#olegend0 { background:rgb(255,245,240); width: 10px; height: 20px; float: left;}
+#olegend1 { background:rgb(254,224,210); width: 10px; height: 20px; float: left;}
+#olegend2 { background:rgb(252,187,161); width: 10px; height: 20px; float: left;}
+#olegend3 { background:rgb(252,146,114); width: 10px; height: 20px; float: left;}
+#olegend4 { background:rgb(251,106,74); width: 10px; height: 20px; float: left;}
+#olegend5 { background:rgb(239,59,44); width: 10px; height: 20px; float: left;}
+#olegend6 { background:rgb(203,24,29); width: 10px; height: 20px; float: left;}
+#olegend7 { background:rgb(165,15,21); width: 10px; height: 20px; float: left;}
+#olegend8 { background:rgb(103,0,13); width: 10px; height: 20px; float: left;}
+
+#blegend {
+	position: absolute;
+	left: 10px;
+	top: 40px;
+}
+
+#blegend0 { background:rgb(247,251,255); width: 10px; height: 20px; float: left;}
+#blegend1 { background:rgb(222,235,247); width: 10px; height: 20px; float: left;}
+#blegend2 { background:rgb(198,219,239); width: 10px; height: 20px; float: left;}
+#blegend3 { background:rgb(158,202,225); width: 10px; height: 20px; float: left;}
+#blegend4 { background:rgb(107,174,214); width: 10px; height: 20px; float: left;}
+#blegend5 { background:rgb(66,146,198); width: 10px; height: 20px; float: left;}
+#blegend6 { background:rgb(33,113,181); width: 10px; height: 20px; float: left;}
+#blegend7 { background:rgb(8,81,156); width: 10px; height: 20px; float: left;}
+#blegend8 { background:rgb(8,48,107); width: 10px; height: 20px; float: left;}
+
+#mlegend {
+	position: absolute;
+	left: 10px;
+	top: 70px;
+}
+
+#mlegend0 { background:none; width: 17px; height: 20px; float: left;}
+#mlegend1 { background:black; width: 10px; height: 20px; float: left;}
+
+#nlegend {
+	position: absolute;
+	left: 10px;
+	top: 100px;
+}
+
+#nlegend0 { background:none; width: 17px; height: 20px; float: left;}
+#nlegend1 { background:#eee; width: 10px; height: 20px; float: left;}
+
+#mlegend span {
+	font-size: 12px;
+	padding-bottom: 6px;
+}
+
+#nlegend span {
+	font-size: 12px;
+	padding-bottom: 6px;
+}
+
+#title {
+	text-align: center;
+}
+
+#title h2 {
+	margin: 0px 0px 0px 0px;
+}
+
+#title p {
+	margin: 0px 0px 10px 0px;
+}
+
+#top_bar {
+	height:212px;
+}
+
+#map_note {
+	font-size: 12px;
+	position: absolute;
+	top: 5px;
+	right: 15px;
+}
+
+ul#instructions {
+	font-size:12px;
+	margin-bottom:20px;
+}
+
+ul#references {
+	list-style-type:none;
+	font-size:12px;
+	padding-left:25px;
+
+}

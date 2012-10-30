@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+      <title></title>
+      <script type="text/javascript" src="js/d3.v2.min.js"></script>
+      <script type="text/javascript" src="js/d3.geo.js"></script>
+      <script type="text/javascript" src="js/d3.csv.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/slider.js"></script>
+      <link type="text/css" rel="stylesheet" href="css/style.css"/>
+      <link type="text/css" rel="stylesheet" href="css/colorbrewer.css"/>
+      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/ui-darkness/jquery-ui.css" />
+      <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+  <div id="container">
+      <div id="chart" class="Purples"> </div>
+      <br/>
+    <div id="top_bar">
+        <div id="sliders">
+            <div id="female_headed_slider_container">
+                <p>
+                <label for="female_headed_amount" id="female_headed_label">Percentage of Female Headed Households&sup1;:</label>
+                <b><span id="female_headed_amount" class="slider_label">30% - 40%</span></b>
+                <input type=checkbox class="checkbox" id="female_headed_checkbox" checked=true> </input><label class="checkbox_label"></label>
+                </p>
+            <div id="female_headed_slider" style=""></div>
+            </div>
+
+        <div id="poverty_children_slider_container">
+                <p>
+                <label for="poverty_children_amount" id="poverty_children_label">Poverty Rate (0-17)&sup1;:</label>
+                <b><span id="poverty_children_amount" class="slider_label">15% - 20%</span></b>
+                <input type=checkbox class="checkbox" id="poverty_children_checkbox" checked=true> </input><label class="checkbox_label"></label>
+                </p>
+            <div id="poverty_children_slider" style=""></div>
+            </div>
+
+
+          <div id="poverty_slider_container">
+                <p>
+                <label for="poverty_amount" id="poverty_label">Poverty&sup1;:</label>
+                <b><span id="poverty_amount" class="slider_label">15% - 20%</span></b>
+                <input type=checkbox class="checkbox" id="poverty_checkbox"> </input><label class="checkbox_label"></label>
+                </p>
+            <div id="poverty_slider" style=""></div>
+            </div>
+
+
+          <div id="unemployment_slider_container">
+                <p>
+                <label for="unemployment_amount" id="unemployment_label">Unemployment&sup1;:</label>
+                <b><span id="unemployment_amount" class="slider_label">15% - 20%</span></b>
+                <input type=checkbox class="checkbox" id="unemployment_checkbox"> </input><label class="checkbox_label"></label>
+                </p>
+            <div id="unemployment_slider" style=""></div>
+            </div>
+
+
+          <div id="no_hs_slider_container">
+                <p>
+                <label for="no_hs_amount" id="no_hs_label">Percentage with no high school&sup1;:</label>
+                <b><span id="no_hs_amount" class="slider_label">15% - 20%</span></b>
+                <input type=checkbox class="checkbox" id="no_hs_checkbox"> </input><label class="checkbox_label"></label>
+                </p>
+            <div id="no_hs_slider" style=""></div>
+        </div>
+        </div>
+
+
+        <div id="county_info">
+            <p class="p_additional">Additional info (mouse over a county for detailed info):</p>
+            <p id="p_info_county">County: <b><span id="info_name">&nbsp</span></b></p>
+            <p id="p_info_state">State: <b><span id="info_state">&nbsp</span></b></p>
+            <p id="p_info_pop">Population&sup2;: <span id="info_population">&nbsp</span></p>
+            <p>Percentage of Female Headed Households&sup1;: <span id="info_female_headed">&nbsp</span></p>
+            <p>Poverty Rate (0-17)&sup2;: <span id="info_poverty_children">&nbsp</span></p>
+            <p>Poverty Rate&sup2;: <span id="info_poverty">&nbsp</span></p>
+            <p>Unemployment Rate&sup2;: <span id="info_unemployment">&nbsp</span></p>
+            <p>Percentage of Population with No HS&sup2;: <span id="info_no_hs">&nbsp</span></p>
+        </div>
+  </div>
+  <script type="text/javascript" src="js/stats.js"></script>
+  </body>
+</html>
