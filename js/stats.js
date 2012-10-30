@@ -26,7 +26,7 @@ d3.json("js/us-counties.json", function(json) {
   counties.selectAll("path")
       .data(json.features)
     .enter().append("svg:path")
-      .attr("class", data ? quantize : null) // color counties
+      .attr("class", data ? quantize : null)
       .attr("d", path)
       .on("mouseover", function(d){
         $('#county_state').html(data[d.id]["county"] + " County, " + data[d.id]["state"]);
@@ -73,11 +73,11 @@ d3.json("js/data.json", function(json) {
 })
 
 params = {
-female_headed: {color:"Bluesq",min:0,max:45,set_max:45},
-poverty_children: {color:"q",min:0,max:62,set_max:62},
-poverty: {color:"Redsq",min:0,max:51,set_max:51},
-unemployment: {color:"Greensq",min:0,max:30,set_max:30},
-no_hs: {color:"RdPuq",min:0,max:55,set_max:55}
+    female_headed: {color:"Bluesq",min:0,max:45,set_max:45},
+    poverty_children: {color:"q",min:0,max:62,set_max:62},
+    poverty: {color:"Redsq",min:0,max:51,set_max:51},
+    unemployment: {color:"Greensq",min:0,max:30,set_max:30},
+    no_hs: {color:"RdPuq",min:0,max:55,set_max:55}
 };
 
 

@@ -1,7 +1,7 @@
 import csv
 import json
 
-f = open( 'people.csv', 'r' )
+f = open( 'people.csv', 'rU' )
 people_reader = csv.DictReader( f, fieldnames = ("FIPS", "state", "county", "population", "under_18", "over_65", "no_hs", "hs_only", "college", "female_headed", "black" ))
 people_data = json.dumps( [ row for row in people_reader ] )
 
