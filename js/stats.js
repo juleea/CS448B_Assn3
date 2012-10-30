@@ -29,7 +29,7 @@ d3.json("js/us-counties.json", function(json) {
       .attr("class", data ? quantize : null) // color counties
       .attr("d", path)
       .on("mouseover", function(d){
-        $('#county_state').html(data[d.id]["county"] + ", " + data[d.id]["state"]);
+        $('#county_state').html(data[d.id]["county"] + " County, " + data[d.id]["state"]);
         $('#pop').html("Population: " + data[d.id]["population"]);
         $('#info_name').html(data[d.id]["county"]);
         $('#info_state').html(data[d.id]["state"]);
@@ -130,7 +130,7 @@ $(function() {
             $(".checkbox").fadeIn();
         },
         function() {
-            $(".checkbox").fadeOut();
+            $(".checkbox").hide();
         }
         );
     });
