@@ -16,6 +16,7 @@ out = {}
 for r in all_people_rows:
 	fips = r["FIPS"]
 	del r["FIPS"]
+	if (len(fips) != 5): fips = "0" + fips
 	out[fips] = r
 
 for r in all_jobs_rows:
@@ -28,5 +29,5 @@ for r in all_jobs_rows:
 	else:
 		out[fips] = r
 
-print json.dumps(out)
-#print json.dumps(out, indent=2)
+#print json.dumps(out)
+print json.dumps(out, indent=2)
