@@ -2,8 +2,9 @@ svg {
   background: #555;
   width: 959px;
   height: 500px;
-  border: 1px solid rgb(49, 163, 84);
-  border-radius: 15px;
+  border: 1px solid rgb(49, 130, 189);
+#border: 1px solid rgb(49, 163, 84);
+#border-radius: 15px;
   cursor:crosshair;
 }
 
@@ -39,10 +40,13 @@ svg {
 #county_state {
   width: 310px;
   float: left;
+  font-size: 15pt;
 }
 
 #pop {
   position: relative;
+  font-size: 15pt;
+  border-bottom: 1px dashed rgb(49, 130, 189);
 }
 
 #counties path {
@@ -215,7 +219,7 @@ body {
 	background: #111;
 	padding: 15px;
 	border: 2px solid rgb(117, 107, 177);
-	border-radius: 15px;
+#border-radius: 15px;
 	width: 500px;
 	height: 470px;
 }

@@ -36,8 +36,6 @@ d3.json("js/us-counties.json", function(json) {
         $('#info_population').html("<b>" + data[d.id]["population"] + "</b>");
         $('#info_female_headed').html("<b>" + data[d.id]["female_headed"] + "%</b>");
         $('#info_poverty_children').html("<b>" + data[d.id]["poverty_children"] + "%</b>");        
-        $('#info_poverty').html("<b>" + data[d.id]["poverty"] + "%</b>");        
-        $('#info_unemployment').html("<b>" + data[d.id]["unemployment"] + "%</b>");        
         $('#info_no_hs').html("<b>" + data[d.id]["no_hs"] + "%</b>");        
         d3.select(this).style("opacity", ".5");
         return tooltip.style("visibility", "visible");
@@ -52,8 +50,6 @@ d3.json("js/us-counties.json", function(json) {
         $('#info_population').html("&nbsp");
         $('#info_female_headed').html("&nbsp");
         $('#info_poverty_children').html("&nbsp");  
-        $('#info_poverty').html("&nbsp");  
-        $('#info_unemployment').html("&nbsp");  
         $('#info_no_hs').html("&nbsp");  
         d3.select(this).style("opacity", "1");
         return tooltip.style("visibility", "hidden");
@@ -124,6 +120,8 @@ function quantize(d) {
 }
 
 $(function() {
+    $('#county_state').html("Hover over county for more info");
+    $('#pop').html("&nbsp;");
     $(".checkbox").hide("fast");
     $("#sliders").hover(
         function() {
@@ -132,8 +130,8 @@ $(function() {
         function() {
             $(".checkbox").hide();
         }
-        );
-    });
+    );
+});
 
 /**
 $(function() {
@@ -193,6 +191,10 @@ $(function(){
       adjust_range("poverty_children",ui.values[0], ui.values[1]);
         }
   });
+$('#poverty_children_label').fadeTo('slow', 0.5, null);
+    $('#poverty_children_amount').fadeTo('slow', 0.5, null);
+    $('#poverty_children_slider').fadeTo('slow', 0.5, null);
+    $('#poverty_children_slider').dragslider("option", "disabled", true);
 });
 
 // Create female_headed slider
@@ -249,6 +251,10 @@ $(function(){
       adjust_range("no_hs", ui.values[0], ui.values[1]);
         }
   });
+    $('#no_hs_label').fadeTo('slow', 0.5, null);
+    $('#no_hs_amount').fadeTo('slow', 0.5, null);
+    $('#no_hs_slider').fadeTo('slow', 0.5, null);
+    $('#no_hs_slider').dragslider("option", "disabled", true);
 });
 
 
