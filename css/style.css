@@ -7,8 +7,19 @@ svg {
   cursor:crosshair;
 }
 
+h1 {
+  text-align: center;
+}
+
+.viz_info {
+  font-size: 15pt;
+  padding-bottom: 30px;
+}
+
 .info_value {
   font-size: 20pt;
+  color: white;
+  text-align: center;
 }
 
 .slider_and_stats_container {
@@ -20,6 +31,22 @@ svg {
   padding-bottom: 5px;
 }
 
+
+#sliders .instructions {
+	font-size: 12px;
+}
+
+.slider_label {
+  font-size:20px;
+}
+
+.slider_label_range {	
+  font-size:20px;
+	border: 0px;
+	width: 150px;
+	background: none;
+}
+
 .slider_checkbox_stats {
   width: 70px;
   float: right;
@@ -28,16 +55,19 @@ svg {
 }
 
 .slider_container {
-  width: 400px;
+  width: 300px;
   float: left;
+  margin-bottom: 20px;
 }
 
 #country_state_pop {
   padding-bottom: 40px;
+  font-size: 20px;
+  height: 40px;
 }
 
 #county_state {
-  width: 310px;
+  width: 270px;
   float: left;
 }
 
@@ -64,16 +94,6 @@ svg {
 	fill:#eee;
 }
 
-#sliders .instructions {
-	font-size: 12px;
-}
-
-.slider_label {	
-#font-size:20px;
-	border: 0px;
-	width: 150px;
-	background: none;
-}
 
 #female_headed_slider_container p {
 	margin: 10px 0px 5px 0px;
@@ -216,7 +236,7 @@ body {
 	padding: 15px;
 	border: 2px solid rgb(117, 107, 177);
 	border-radius: 15px;
-	width: 500px;
+	width: 400px;
 	height: 470px;
 }
 

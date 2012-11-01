@@ -17,16 +17,25 @@
   <body>
   <div id="container">
     <div id="top_bar">
+      <h1>Census 2010 (change this!)</h1>
+      <div class="viz_info">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+    
+    <div id="bottom_bar">
         <div id="sliders">
-            <div id="country_state_pop">
+            <div id="county_state_pop">
+                <div id="county_state_hover_msg"></div>
                 <div id="county_state"></div>
                 <div id="pop"></div>
             </div>
             <div class="slider_and_stats_container" id="female_headed_slider_container">
                 <div class="slider_container">
                     <div class="slider_label_amount">                    
-                        <label for="female_headed_amount" id="female_headed_label">Percentage of Female Headed Households&sup1;:</label>
-                        <b><span id="female_headed_amount" class="slider_label">30% - 40%</span></b>        
+                        <label for="female_headed_amount" id="female_headed_label" class="slider_label">% Female Headed Households&sup1;:</label>
+                        <b><span id="female_headed_amount" class="slider_label_range">30% - 40%</span></b>        
                     </div>
                     <div id="female_headed_slider" style=""></div>
                 </div>
@@ -39,8 +48,8 @@
             <div class="slider_and_stats_container" id="poverty_children_slider_container">
                 <div class="slider_container">
                     <div class="slider_label_amount">
-                        <label for="poverty_children_amount" id="poverty_children_label">Poverty Rate (0-17)&sup1;:</label>
-                        <b><span id="poverty_children_amount" class="slider_label">15% - 20%</span></b>
+                        <label for="poverty_children_amount" id="poverty_children_label" class="slider_label">Poverty Rate (0-17)&sup1;:</label>
+                        <b><span id="poverty_children_amount" class="slider_label_range">15% - 20%</span></b>
                     </div>
                     <div id="poverty_children_slider" style=""></div>                    
                 </div>
@@ -74,8 +83,8 @@
           <div class="slider_and_stats_container" id="no_hs_slider_container">
               <div class="slider_container">
                   <div class="slider_label_amount">
-                    <label for="no_hs_amount" id="no_hs_label">Percentage with no high school&sup1;:</label>
-                    <b><span id="no_hs_amount" class="slider_label">15% - 20%</span></b>
+                    <label for="no_hs_amount" id="no_hs_label" class="slider_label">% with no high school&sup1;:</label>
+                    <b><span id="no_hs_amount" class="slider_label_range  ">15% - 20%</span></b>
                   </div>
                   <div id="no_hs_slider" style=""></div>
               </div>

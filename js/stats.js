@@ -30,7 +30,7 @@ d3.json("js/us-counties.json", function(json) {
       .attr("d", path)
       .on("mouseover", function(d){
         $('#county_state').html(data[d.id]["county"] + " County, " + data[d.id]["state"]);
-        $('#pop').html("Population: " + data[d.id]["population"]);
+        $('#pop').html("Pop: " + data[d.id]["population"]);
         $('#info_name').html(data[d.id]["county"]);
         $('#info_state').html(data[d.id]["state"]);
         $('#info_population').html("<b>" + data[d.id]["population"] + "</b>");
@@ -45,7 +45,8 @@ d3.json("js/us-counties.json", function(json) {
       .on("mousemove", function(d){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+15)+"px").text(data[d.id]["name"]);})
       .on("mouseout", function(){
 
-        $('#county_state').html("Hover over county for more info");
+        $('#county_state_hover_msg').html("<i>Hover over the map for more info about a county</i>");
+        $('#county_state').html("&nbsp");
         $('#pop').html("&nbsp");
         $('#info_name').html("&nbsp");
         $('#info_state').html("&nbsp");
@@ -161,6 +162,12 @@ function adjust_range(stat, min, max) {
       .attr("class", quantize); // recolor
 }
 
+//init "hover" message
+$(function(){
+  $('#county_state').html("<i>Hover over the map for more info about a county</i>");
+});
+
+
 // Create female_headed slider
 $(function(){
   // Slider
@@ -176,6 +183,7 @@ $(function(){
       adjust_range("female_headed",ui.values[0], ui.values[1]);
         }
   });
+  
 });
 
 // Create poverty_children slider
