@@ -47,7 +47,8 @@ d3.json("js/us-counties.json", function(json) {
         $('#info_population').html("<b>" + getInfo(d.id, "population") + "</b>");
         $('#info_female_headed').html("<b>" + getInfo(d.id, "female_headed") + "%</b>");
         $('#info_poverty_children').html("<b>" + getInfo(d.id, "poverty_children") + "%</b>");        
-        $('#info_no_hs').html("<b>" + getInfo(d.id, "no_hs") + "%</b>");        
+        $('#info_no_hs').html("<b>" + getInfo(d.id, "no_hs") + "%</b>");  
+        $('#info_income').html("<b>$" + getInfo(d.id, "income") + "</b>");        
         d3.select(this).style("opacity", ".5");
         return tooltip.style("visibility", "visible");
       })
@@ -140,11 +141,13 @@ function quantize(d) {
 $(function() {
   console.log("special checkboxes");
   $("#female_headed_checkbox").button()
-  $('#female_headed_slider_container .slider_checkbox_stats label').attr('id', 'female_headed_button');
+  $('#female_headed_slider_container .slider_checkbox_stats label').attr('id', 'female_headed_button').addClass('toggle_button');
   $("#poverty_children_checkbox").button()
-  $('#poverty_children_slider_container .slider_checkbox_stats label').attr('id', 'poverty_children_button');
+  $('#poverty_children_slider_container .slider_checkbox_stats label').attr('id', 'poverty_children_button').addClass('toggle_button');
   $("#no_hs_checkbox").button();
-  $('#no_hs_slider_container .slider_checkbox_stats label').attr('id', 'no_hs_button');
+  $('#no_hs_slider_container .slider_checkbox_stats label').attr('id', 'no_hs_button').addClass('toggle_button');
+  $("#income_checkbox").button();
+  $('#income_slider_container .slider_checkbox_stats label').attr('id', 'income_button').addClass('toggle_button');
 });
 
 $(function() {
@@ -230,7 +233,7 @@ $(function(){
     $('#no_hs_slider').dragslider("option", "disabled", true);
 });
 
-// Create female_headed slider
+// Create income_headed slider
 $(function(){
   // Slider
   $('#income_slider').dragslider({
