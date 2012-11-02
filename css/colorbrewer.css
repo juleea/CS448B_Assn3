@@ -1262,66 +1262,66 @@
 .Spectral .q8-11{fill:rgb(102,194,165)}
 .Spectral .q9-11{fill:rgb(50,136,189)}
 .Spectral .q10-11{fill:rgb(94,79,162)}
-.RdYlGn .q0-3{fill:rgb(252,141,89)}
-.RdYlGn .q1-3{fill:rgb(255,255,191)}
-.RdYlGn .q2-3{fill:rgb(145,207,96)}
-.RdYlGn .q0-4{fill:rgb(215,25,28)}
-.RdYlGn .q1-4{fill:rgb(253,174,97)}
-.RdYlGn .q2-4{fill:rgb(166,217,106)}
-.RdYlGn .q3-4{fill:rgb(26,150,65)}
-.RdYlGn .q0-5{fill:rgb(215,25,28)}
-.RdYlGn .q1-5{fill:rgb(253,174,97)}
-.RdYlGn .q2-5{fill:rgb(255,255,191)}
-.RdYlGn .q3-5{fill:rgb(166,217,106)}
-.RdYlGn .q4-5{fill:rgb(26,150,65)}
-.RdYlGn .q0-6{fill:rgb(215,48,39)}
-.RdYlGn .q1-6{fill:rgb(252,141,89)}
-.RdYlGn .q2-6{fill:rgb(254,224,139)}
-.RdYlGn .q3-6{fill:rgb(217,239,139)}
-.RdYlGn .q4-6{fill:rgb(145,207,96)}
-.RdYlGn .q5-6{fill:rgb(26,152,80)}
-.RdYlGn .q0-7{fill:rgb(215,48,39)}
-.RdYlGn .q1-7{fill:rgb(252,141,89)}
-.RdYlGn .q2-7{fill:rgb(254,224,139)}
-.RdYlGn .q3-7{fill:rgb(255,255,191)}
-.RdYlGn .q4-7{fill:rgb(217,239,139)}
-.RdYlGn .q5-7{fill:rgb(145,207,96)}
-.RdYlGn .q6-7{fill:rgb(26,152,80)}
-.RdYlGn .q0-8{fill:rgb(215,48,39)}
-.RdYlGn .q1-8{fill:rgb(244,109,67)}
-.RdYlGn .q2-8{fill:rgb(253,174,97)}
-.RdYlGn .q3-8{fill:rgb(254,224,139)}
-.RdYlGn .q4-8{fill:rgb(217,239,139)}
-.RdYlGn .q5-8{fill:rgb(166,217,106)}
-.RdYlGn .q6-8{fill:rgb(102,189,99)}
-.RdYlGn .q7-8{fill:rgb(26,152,80)}
-.RdYlGn .q0-9{fill:rgb(215,48,39)}
-.RdYlGn .q1-9{fill:rgb(244,109,67)}
-.RdYlGn .q2-9{fill:rgb(253,174,97)}
-.RdYlGn .q3-9{fill:rgb(254,224,139)}
-.RdYlGn .q4-9{fill:rgb(255,255,191)}
-.RdYlGn .q5-9{fill:rgb(217,239,139)}
-.RdYlGn .q6-9{fill:rgb(166,217,106)}
-.RdYlGn .q7-9{fill:rgb(102,189,99)}
-.RdYlGn .q8-9{fill:rgb(26,152,80)}
-.RdYlGn .q0-10{fill:rgb(165,0,38)}
-.RdYlGn .q1-10{fill:rgb(215,48,39)}
-.RdYlGn .q2-10{fill:rgb(244,109,67)}
-.RdYlGn .q3-10{fill:rgb(253,174,97)}
-.RdYlGn .q4-10{fill:rgb(254,224,139)}
-.RdYlGn .q5-10{fill:rgb(217,239,139)}
-.RdYlGn .q6-10{fill:rgb(166,217,106)}
-.RdYlGn .q7-10{fill:rgb(102,189,99)}
-.RdYlGn .q8-10{fill:rgb(26,152,80)}
-.RdYlGn .q9-10{fill:rgb(0,104,55)}
-.RdYlGn .q0-11{fill:rgb(165,0,38)}
-.RdYlGn .q1-11{fill:rgb(215,48,39)}
-.RdYlGn .q2-11{fill:rgb(244,109,67)}
-.RdYlGn .q3-11{fill:rgb(253,174,97)}
-.RdYlGn .q4-11{fill:rgb(254,224,139)}
-.RdYlGn .q5-11{fill:rgb(255,255,191)}
-.RdYlGn .q6-11{fill:rgb(217,239,139)}
-.RdYlGn .q7-11{fill:rgb(166,217,106)}
-.RdYlGn .q8-11{fill:rgb(102,189,99)}
-.RdYlGn .q9-11{fill:rgb(26,152,80)}
-.RdYlGn .q10-11{fill:rgb(0,104,55)}
+.RdYlGnq0-3{fill:rgb(252,141,89)}
+.RdYlGnq1-3{fill:rgb(255,255,191)}
+.RdYlGnq2-3{fill:rgb(145,207,96)}
+.RdYlGnq0-4{fill:rgb(215,25,28)}
+.RdYlGnq1-4{fill:rgb(253,174,97)}
+.RdYlGnq2-4{fill:rgb(166,217,106)}
+.RdYlGnq3-4{fill:rgb(26,150,65)}
+.RdYlGnq0-5{fill:rgb(215,25,28)}
+.RdYlGnq1-5{fill:rgb(253,174,97)}
+.RdYlGnq2-5{fill:rgb(255,255,191)}
+.RdYlGnq3-5{fill:rgb(166,217,106)}
+.RdYlGnq4-5{fill:rgb(26,150,65)}
+.RdYlGnq0-6{fill:rgb(215,48,39)}
+.RdYlGnq1-6{fill:rgb(252,141,89)}
+.RdYlGnq2-6{fill:rgb(254,224,139)}
+.RdYlGnq3-6{fill:rgb(217,239,139)}
+.RdYlGnq4-6{fill:rgb(145,207,96)}
+.RdYlGnq5-6{fill:rgb(26,152,80)}
+.RdYlGnq0-7{fill:rgb(215,48,39)}
+.RdYlGnq1-7{fill:rgb(252,141,89)}
+.RdYlGnq2-7{fill:rgb(254,224,139)}
+.RdYlGnq3-7{fill:rgb(255,255,191)}
+.RdYlGnq4-7{fill:rgb(217,239,139)}
+.RdYlGnq5-7{fill:rgb(145,207,96)}
+.RdYlGnq6-7{fill:rgb(26,152,80)}
+.RdYlGnq0-8{fill:rgb(215,48,39)}
+.RdYlGnq1-8{fill:rgb(244,109,67)}
+.RdYlGnq2-8{fill:rgb(253,174,97)}
+.RdYlGnq3-8{fill:rgb(254,224,139)}
+.RdYlGnq4-8{fill:rgb(217,239,139)}
+.RdYlGnq5-8{fill:rgb(166,217,106)}
+.RdYlGnq6-8{fill:rgb(102,189,99)}
+.RdYlGnq7-8{fill:rgb(26,152,80)}
+.RdYlGnq0-9{fill:rgb(215,48,39)}
+.RdYlGnq1-9{fill:rgb(244,109,67)}
+.RdYlGnq2-9{fill:rgb(253,174,97)}
+.RdYlGnq3-9{fill:rgb(254,224,139)}
+.RdYlGnq4-9{fill:rgb(255,255,191)}
+.RdYlGnq5-9{fill:rgb(217,239,139)}
+.RdYlGnq6-9{fill:rgb(166,217,106)}
+.RdYlGnq7-9{fill:rgb(102,189,99)}
+.RdYlGnq8-9{fill:rgb(26,152,80)}
+.RdYlGnq0-10{fill:rgb(165,0,38)}
+.RdYlGnq1-10{fill:rgb(215,48,39)}
+.RdYlGnq2-10{fill:rgb(244,109,67)}
+.RdYlGnq3-10{fill:rgb(253,174,97)}
+.RdYlGnq4-10{fill:rgb(254,224,139)}
+.RdYlGnq5-10{fill:rgb(217,239,139)}
+.RdYlGnq6-10{fill:rgb(166,217,106)}
+.RdYlGnq7-10{fill:rgb(102,189,99)}
+.RdYlGnq8-10{fill:rgb(26,152,80)}
+.RdYlGnq9-10{fill:rgb(0,104,55)}
+.RdYlGnq0-11{fill:rgb(165,0,38)}
+.RdYlGnq1-11{fill:rgb(215,48,39)}
+.RdYlGnq2-11{fill:rgb(244,109,67)}
+.RdYlGnq3-11{fill:rgb(253,174,97)}
+.RdYlGnq4-11{fill:rgb(254,224,139)}
+.RdYlGnq5-11{fill:rgb(255,255,191)}
+.RdYlGnq6-11{fill:rgb(217,239,139)}
+.RdYlGnq7-11{fill:rgb(166,217,106)}
+.RdYlGnq8-11{fill:rgb(102,189,99)}
+.RdYlGnq9-11{fill:rgb(26,152,80)}
+.RdYlGnq10-11{fill:rgb(0,104,55)}

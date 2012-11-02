@@ -9,6 +9,7 @@ svg {
 
 h1 {
   text-align: center;
+  border-bottom: 1px dashed rgba(49, 163, 84, 0.5);
 }
 
 .viz_info {
@@ -17,7 +18,7 @@ h1 {
 }
 
 .info_value {
-  font-size: 20pt;
+  font-size: 18pt;
   color: white;
   text-align: center;
 }
@@ -65,6 +66,7 @@ h1 {
   margin-bottom: 20px;
 }
 
+
 #county_state_hover_msg {
   font-style: italic;
   padding-bottom: 10px;  
@@ -105,6 +107,20 @@ h1 {
 	fill:#eee;
 }
 
+.female {
+    color: rgb(49, 130, 189);
+}
+
+.income {
+    color: rgb(49, 163, 84);
+}
+.poverty_children {
+    color: rgb(117,107,177);
+}
+
+.no_hs {
+    color: rgb(197, 27, 138);
+}
 
 #female_headed_slider_container p {
 	margin: 10px 0px 5px 0px;
@@ -115,31 +131,23 @@ h1 {
 }
 
 #female_headed_slider .ui-slider-range {
-#background:rgb(165,15,21);
 	background:rgb(8,81,156);
 }
 
 #female_headed_slider .ui-state-hover {
-#	background:rgb(254,224,210);
-#	border:1px solid rgb(165,15,21);
 	background:rgb(222,235,247);
 	border:1px solid rgb(8,48,107);
 
 }
 
 #female_headed_slider .ui-state-focus {
-#	background:rgb(254,224,210);
-#	border:1px solid rgb(165,15,21);
 	background:rgb(222,235,247);
 	border:1px solid rgb(8,48,107);
-
 }
 
 #female_headed_slider .ui-slider-handle {
-#	border:1px solid rgb(165,15,21);
 	border:1px solid rgb(8,48,107);
 }
-
 #poverty_children_slider .ui-slider-range {
 	background:rgb(117,107,177);
 }
@@ -216,6 +224,31 @@ h1 {
 #unemployment_slider .ui-slider-range {
 	background:rgb(49, 163, 84);
 }
+
+#income_slider .ui-state-hover {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#income_slider .ui-state-focus {
+	background:rgb(222,235,247);
+	border:1px solid rgb(117,107,177);
+}
+
+#income_slider .ui-slider-handle {
+    border:1px solid rgb(49, 163, 84);
+#border:1px solid #111111;
+}
+
+#income_slider .ui-slider-range {
+	background:rgb(49, 163, 84);
+#background: -webkit-gradient(linear, left top, right bottom, from(rgb(252, 141, 89)), to(rgb(153, 213, 148)));
+}
+
+#info_income {
+    font-size: 13pt;
+}
+
 
 .ui-disabled {
 	opacity:.5;

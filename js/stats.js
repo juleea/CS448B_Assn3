@@ -22,6 +22,8 @@ var counties = svg.append("svg:g")
 var states = svg.append("svg:g")
     .attr("id", "states");
 
+var numChecked = 2;
+
 d3.json("js/us-counties.json", function(json) {
   counties.selectAll("path")
       .data(json.features)
@@ -37,12 +39,12 @@ d3.json("js/us-counties.json", function(json) {
         $('#info_female_headed').html("<b>" + data[d.id]["female_headed"] + "%</b>");
         $('#info_poverty_children').html("<b>" + data[d.id]["poverty_children"] + "%</b>");        
         $('#info_no_hs').html("<b>" + data[d.id]["no_hs"] + "%</b>");        
+        $('#info_income').html("<b>$" + data[d.id]["income"] + "</b>");        
         d3.select(this).style("opacity", ".5");
         return tooltip.style("visibility", "visible");
       })
       .on("mousemove", function(d){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+15)+"px").text(data[d.id]["name"]);})
       .on("mouseout", function(){
-
         $('#county_state').html("&nbsp");
         $('#pop').html("&nbsp");
         $('#info_name').html("&nbsp");
@@ -51,6 +53,7 @@ d3.json("js/us-counties.json", function(json) {
         $('#info_female_headed').html("&nbsp");
         $('#info_poverty_children').html("&nbsp");  
         $('#info_no_hs').html("&nbsp");  
+        $('#info_income').html("&nbsp");  
         d3.select(this).style("opacity", "1");
         return tooltip.style("visibility", "hidden");
       });
@@ -69,11 +72,11 @@ d3.json("js/data.json", function(json) {
 })
 
 params = {
-female_headed: {color:"Bluesq",min:0,max:45,set_max:45},
-poverty_children: {color:"q",min:0,max:62,set_max:62},
-poverty: {color:"Redsq",min:0,max:51,set_max:51},
-unemployment: {color:"Greensq",min:0,max:30,set_max:30},
-no_hs: {color:"RdPuq",min:0,max:55,set_max:55}
+female_headed: {color:"Bluesq",set_min:0,min:20,max:45,set_max:45},
+poverty_children: {color:"q",set_min:0,min:35,max:62,set_max:62},
+//unemployment: {color:"Greensq",set_min:0,max:30,set_max:30},
+no_hs: {color:"RdPuq",set_min:0,min:25,max:55,set_max:55},
+income: {color:"Greensq",set_min:18800,min:18800,max:35000,set_max:120000}
 };
 
 
@@ -97,16 +100,23 @@ function quantize(d) {
         stats.push("no_hs");
       }
   }
-    if ($('#poverty_checkbox').is(':checked')) {
+    /*if ($('#poverty_checkbox').is(':checked')) {
       if (county_data["poverty"] >= params["poverty"]["min"] && county_data["poverty"] <= params["poverty"]["max"]) {
         stats.push("poverty");
       }
   }
+  */
     if ($('#unemployment_checkbox').is(':checked')) {
       if (county_data["unemployment"] >= params["unemployment"]["min"] && county_data["unemployment"] <= params["unemployment"]["max"]) {
         stats.push("unemployment");
       }
   }
+  if ($('#income_checkbox').is(':checked')) {
+      if (county_data["income"] >= params["income"]["min"] && county_data["income"] <= params["income"]["max"]) {
+        stats.push("income");
+      }
+  }
+
 
   if (stats.length == 0) {
       return "ignore";
@@ -120,13 +130,6 @@ function quantize(d) {
 }
 
 $(function() {
-  console.log("special checkboxes");
-//  $('input').ezMark();
-	$('input[type="checkbox"]').ezMark({checkboxCls: 'ez-checkbox-green', checkedCls: 'ez-checked-green'})
-});
-
-$(function() {
-//    $('#county_state_hover_msg').html("Hover over the map for more info about a county");
     $('#pop').html("&nbsp;");
     $(".checkbox").hide("fast");
     $("#sliders").hover(
@@ -138,19 +141,6 @@ $(function() {
         }
     );
 });
-
-/**
-$(function() {
-    $("#chart").hover(
-      function() {
-          $('#info_female_headed').html("<b>--</b>");
-          $('#info_poverty_children').html("<b>--</b>");        
-          $('#info_poverty').html("<b>" + data[d.id]["poverty"] + "%</b>");        
-          $('#info_unemployment').html("<b>--</b>");        
-          $('#info_no_hs').html("<b>--</b>");        
-    })
-  });
-*/
 
 function redraw() {
   console.log(d3.event.scale);
@@ -166,11 +156,6 @@ function adjust_range(stat, min, max) {
       .attr("class", quantize); // recolor
 }
 
-//init "hover" message
-//$(function(){
-//  $('#county_state_hover_msg').html("<i>Hover over the map for more info about a county</i>");
-//});
-
 
 // Create female_headed slider
 $(function(){
@@ -181,13 +166,12 @@ $(function(){
     rangeDrag: true,
     min:0,
     max:45,
-    values: [30, 45],
+    values: [20, 45],
     slide: function( event, ui ) {
       $( "#female_headed_amount" ).html( ui.values[0] + "% - " + ui.values[1] + "%" );
       adjust_range("female_headed",ui.values[0], ui.values[1]);
         }
   });
-  
 });
 
 // Create poverty_children slider
@@ -199,55 +183,13 @@ $(function(){
     rangeDrag: true,
     min:0,
     max:62,
-    values: [45, 62],
+    values: [35, 62],
     slide: function( event, ui ) {
       $( "#poverty_children_amount" ).html( ui.values[0] + "% - " + ui.values[1] + "%");
       adjust_range("poverty_children",ui.values[0], ui.values[1]);
         }
   });
-$('#poverty_children_label').fadeTo('slow', 0.5, null);
-    $('#poverty_children_amount').fadeTo('slow', 0.5, null);
-    $('#poverty_children_slider').fadeTo('slow', 0.5, null);
-    $('#poverty_children_slider').dragslider("option", "disabled", true);
 });
-
-// Create female_headed slider
-$(function(){
-  // Slider
-  $('#poverty_slider').dragslider({
-    animate: true,
-    range: true,
-    rangeDrag: true,
-    min:0,
-    max:51,
-    values: [40, 51],
-    slide: function( event, ui ) {
-        console.log(ui.values[0]);
-      $( "#poverty_amount" ).html( ui.values[0] + "% - " + ui.values[1] + "%" );
-      adjust_range("poverty", ui.values[0], ui.values[1]);
-        }
-  });
-});
-
-
-// Create female_headed slider
-$(function(){
-  // Slider
-  $('#unemployment_slider').dragslider({
-    animate: true,
-    range: true,
-    rangeDrag: true,
-    min:0,
-    max:30,
-    values: [25, 35],
-    slide: function( event, ui ) {
-        console.log(ui.values[0]);
-      $( "#unemployment_amount" ).html( ui.values[0] + "% - " + ui.values[1] + "%" );
-      adjust_range("unemployment", ui.values[0], ui.values[1]);
-        }
-  });
-});
-
 
 // Create female_headed slider
 $(function(){
@@ -258,7 +200,7 @@ $(function(){
     rangeDrag: true,
     min:0,
     max:55,
-    values: [40, 55],
+    values: [25, 55],
     slide: function( event, ui ) {
         console.log(ui.values[0]);
       $( "#no_hs_amount" ).html( ui.values[0] + "% - " + ui.values[1] + "%" );
@@ -271,12 +213,38 @@ $(function(){
     $('#no_hs_slider').dragslider("option", "disabled", true);
 });
 
+// Create female_headed slider
+$(function(){
+  // Slider
+  $('#income_slider').dragslider({
+    animate: true,
+    range: true,
+    rangeDrag: true,
+    min:18800,
+    max:120000,
+    values: [18800, 35000],
+    slide: function( event, ui ) {
+      $( "#income_amount" ).html( "$" + ui.values[0] + " - $" + ui.values[1] );
+      adjust_range("income", ui.values[0], ui.values[1]);
+        }
+  });
+    $('#income_label').fadeTo('slow', 0.5, null);
+    $('#income_amount').fadeTo('slow', 0.5, null);
+    $('#income_slider').fadeTo('slow', 0.5, null);
+    $('#income_slider').dragslider("option", "disabled", true);
+
+});
+
+
 
 // Code for checkboxes
 $(document).ready(function() {
+        console.log(numChecked);
 
 $('#poverty_children_checkbox').change(function() {
-  if ($('#poverty_children_checkbox').is(':checked')) {
+        console.log(numChecked);
+  if (numChecked < 2 && $('#poverty_children_checkbox').is(':checked')) {
+    numChecked++;
     $('#poverty_children_slider').dragslider("option", "disabled", false);
     $('#poverty_children_label').fadeTo('slow', 1, null);
     $('#poverty_children_amount').fadeTo('slow', 1, null);
@@ -284,17 +252,42 @@ $('#poverty_children_checkbox').change(function() {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
   } else {
+    numChecked--;
     $('#poverty_children_label').fadeTo('slow', 0.5, null);
     $('#poverty_children_amount').fadeTo('slow', 0.5, null);
     $('#poverty_children_slider').fadeTo('slow', 0.5, null);
     $('#poverty_children_slider').dragslider("option", "disabled", true);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
+      $('.checkbox').attr("disabled", false);
+  }
+});
+
+$('#income_checkbox').change(function() {
+        console.log(numChecked);
+  if ( numChecked < 2 && $('#income_checkbox').is(':checked')) {
+    numChecked++;
+    $('#income_slider').dragslider("option", "disabled", false);
+    $('#income_label').fadeTo('slow', 1, null);
+    $('#income_amount').fadeTo('slow', 1, null);
+    $('#income_slider').fadeTo('slow', 1, null);
+    counties.selectAll("path")
+      .attr("class", quantize); // recolor
+  } else {
+    numChecked--;
+    $('#income_label').fadeTo('slow', 0.5, null);
+    $('#income_amount').fadeTo('slow', 0.5, null);
+    $('#income_slider').fadeTo('slow', 0.5, null);
+    $('#income_slider').dragslider("option", "disabled", true);
+    counties.selectAll("path")
+      .attr("class", quantize); // recolor
+      $('.checkbox').attr("disabled", false);
   }
 });
 
 $('#female_headed_checkbox').change(function() {
-  if ($('#female_headed_checkbox').is(':checked')) {
+  if (numChecked < 2 && $('#female_headed_checkbox').is(':checked')) {
+    numChecked++;
     $('#female_headed_slider').dragslider("option", "disabled", false);
     $('#female_headed_label').fadeTo('slow', 1, null);
     $('#female_headed_amount').fadeTo('slow', 1, null);
@@ -302,70 +295,36 @@ $('#female_headed_checkbox').change(function() {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
   } else {
+    numChecked--;
     $('#female_headed_label').fadeTo('slow', 0.5, null);
     $('#female_headed_amount').fadeTo('slow', 0.5, null);
     $('#female_headed_slider').fadeTo('slow', 0.5, null);
     $('#female_headed_slider').dragslider("option", "disabled", true);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
+      $('.checkbox').attr("disabled", false);
   }
 });
-
-
-$('#poverty_checkbox').change(function() {
-  if ($('#poverty_checkbox').is(':checked')) {
-    $('#poverty_slider').dragslider("option", "disabled", false);
-    $('#poverty_label').fadeTo('slow', 1, null);
-    $('#poverty_amount').fadeTo('slow', 1, null);
-    $('#poverty_slider').fadeTo('slow', 1, null);
-    counties.selectAll("path")
-      .attr("class", quantize); // recolor
-  } else {
-    $('#poverty_label').fadeTo('slow', 0.5, null);
-    $('#poverty_amount').fadeTo('slow', 0.5, null);
-    $('#poverty_slider').fadeTo('slow', 0.5, null);
-    $('#poverty_slider').dragslider("option", "disabled", true);
-    counties.selectAll("path")
-      .attr("class", quantize); // recolor
-  }
-});
-
-
-$('#unemployment_checkbox').change(function() {
-  if ($('#unemployment_checkbox').is(':checked')) {
-    $('#unemployment_slider').dragslider("option", "disabled", false);
-    $('#unemployment_label').fadeTo('slow', 1, null);
-    $('#unemployment_amount').fadeTo('slow', 1, null);
-    $('#unemployment_slider').fadeTo('slow', 1, null);
-    counties.selectAll("path")
-      .attr("class", quantize); // recolor
-  } else {
-    $('#unemployment_label').fadeTo('slow', 0.5, null);
-    $('#unemployment_amount').fadeTo('slow', 0.5, null);
-    $('#unemployment_slider').fadeTo('slow', 0.5, null);
-    $('#unemployment_slider').dragslider("option", "disabled", true);
-    counties.selectAll("path")
-      .attr("class", quantize); // recolor
-  }
-});
-
-
 
 $('#no_hs_checkbox').change(function() {
-  if ($('#no_hs_checkbox').is(':checked')) {
+  if (numChecked<2 && $('#no_hs_checkbox').is(':checked')) {
+    numChecked++;
     $('#no_hs_slider').dragslider("option", "disabled", false);
     $('#no_hs_label').fadeTo('slow', 1, null);
     $('#no_hs_amount').fadeTo('slow', 1, null);
     $('#no_hs_slider').fadeTo('slow', 1, null);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
-  } else {
+    $('#no_hs_checxbox').attr('disabled', true);
+  } else if ($('#no_hs_slider').css('opacity') != 0.5) {
+    numChecked--;
     $('#no_hs_label').fadeTo('slow', 0.5, null);
     $('#no_hs_amount').fadeTo('slow', 0.5, null);
     $('#no_hs_slider').fadeTo('slow', 0.5, null);
     $('#no_hs_slider').dragslider("option", "disabled", true);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
+      $('.checkbox').attr("disabled", false);
   }
 });
 
