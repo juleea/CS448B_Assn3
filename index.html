@@ -43,7 +43,7 @@
                     </div>
                     <div class="slider_tag" id="female_headed_slider" style=""></div>
                     <div class="slider_checkbox_stats">
-                        <input type=checkbox class="checkbox" id="female_headed_checkbox" checked=true> </input><label class="checkbox_label" for="female_headed_checkbox"></label>
+                        <!-- input type=radio class="radio" name="radio_button_set" id="female_headed_checkbox" checked=true> </input><label class="checkbox_label" for="female_headed_checkbox"></label -->
                         <span class="info_value" id="info_female_headed">&nbsp</span>
                     </div>
                 </div>
@@ -57,7 +57,8 @@
                     </div>
                     <div  class="slider_tag" id="poverty_children_slider" style=""></div>                    
                     <div class="slider_checkbox_stats">
-                        <input type=checkbox class="checkbox" id="poverty_children_checkbox" checked="true"> </input><label class="checkbox_label" for="poverty_children_checkbox"></label>
+                        <!--<input type=checkbox class="checkbox" id="poverty_children_checkbox" checked="true"> </input><label class="checkbox_label" for="poverty_children_checkbox"></label>-->
+                        <input type="radio" class="radio" name="radio_button_set" id="poverty_children_checkbox" checked="true"> </input><label class="checkbox_label" for="poverty_children_checkbox"></label>
                         <span class="info_value" id="info_poverty_children">&nbsp</span>
                     </div>
                 </div>
@@ -66,12 +67,20 @@
           <div class="slider_and_stats_container" id="no_hs_slider_container">
               <div class="slider_container">
                   <div class="slider_label_amount">
+                  <!--
                     <label for="no_hs_amount" id="no_hs_label" class="slider_label">% with no high school:</label>
                     <b><span id="no_hs_amount" class="slider_label_range  ">25% - 55%</span></b>
                   </div>
                   <div  class="slider_tag" id="no_hs_slider" style=""></div>
                   <div class="slider_checkbox_stats">
                     <input type=checkbox class="checkbox" id="no_hs_checkbox" disabled="true"> </input><label class="checkbox_label" for="no_hs_checkbox"></label>
+                    -->
+                    <label for="no_hs_amount" id="no_hs_label" class="slider_label">% with no high school&sup1;:</label>
+                    <b><span id="no_hs_amount" class="slider_label_range">25% - 55%</span></b>
+                  </div>
+                  <div  class="slider_tag" id="no_hs_slider" style=""></div>
+                  <div class="slider_checkbox_stats">
+                    <input type="radio" class="radio" name="radio_button_set" id="no_hs_checkbox"> </input><label class="checkbox_label" for="no_hs_checkbox"></label>
                     <span class="info_value" id="info_no_hs">&nbsp</span>
                   </div>
               </div>
@@ -85,7 +94,7 @@
                     </div>
                     <div  class="slider_tag" id="income_slider" style=""></div>
                     <div class="slider_checkbox_stats">
-                        <input type=checkbox class="checkbox" id="income_checkbox" disabled="true"> </input><label class="checkbox_label"></label>
+                        <input type="radio" class="radio" name="radio_button_set" id="income_checkbox"> </input><label class="checkbox_label" for="income_checkbox"></label>
                         <span class="info_value" id="info_income">&nbsp</span>
                     </div>
                 </div>
