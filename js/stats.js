@@ -23,6 +23,15 @@ var states = svg.append("svg:g")
     .attr("id", "states");
 
 d3.json("js/us-counties.json", function(json) {
+  var getInfo = function(id, type) {
+    var val = data[id][type];
+    console.log(val);
+    if (val == undefined || val == "") {
+      val = "--";
+    }
+    return val;
+  };
+
   counties.selectAll("path")
       .data(json.features)
     .enter().append("svg:path")
@@ -33,10 +42,10 @@ d3.json("js/us-counties.json", function(json) {
         $('#pop').html(data[d.id]["population"]);
         $('#info_name').html(data[d.id]["county"]);
         $('#info_state').html(data[d.id]["state"]);
-        $('#info_population').html("<b>" + data[d.id]["population"] + "</b>");
-        $('#info_female_headed').html("<b>" + data[d.id]["female_headed"] + "%</b>");
-        $('#info_poverty_children').html("<b>" + data[d.id]["poverty_children"] + "%</b>");        
-        $('#info_no_hs').html("<b>" + data[d.id]["no_hs"] + "%</b>");        
+        $('#info_population').html("<b>" + getInfo(d.id, "population") + "</b>");
+        $('#info_female_headed').html("<b>" + getInfo(d.id, "female_headed") + "%</b>");
+        $('#info_poverty_children').html("<b>" + getInfo(d.id, "poverty_children") + "%</b>");        
+        $('#info_no_hs').html("<b>" + getInfo(d.id, "no_hs") + "%</b>");        
         d3.select(this).style("opacity", ".5");
         return tooltip.style("visibility", "visible");
       })
@@ -121,20 +130,23 @@ function quantize(d) {
 
 $(function() {
   console.log("special checkboxes");
-//  $('input').ezMark();
-	$('input[type="checkbox"]').ezMark({checkboxCls: 'ez-checkbox-green', checkedCls: 'ez-checked-green'})
+  $("#female_headed_checkbox").button()
+  $('#female_headed_slider_container .slider_checkbox_stats label').attr('id', 'female_headed_button');
+  $("#poverty_children_checkbox").button()
+  $('#poverty_children_slider_container .slider_checkbox_stats label').attr('id', 'poverty_children_button');
+  $("#no_hs_checkbox").button();
+  $('#no_hs_slider_container .slider_checkbox_stats label').attr('id', 'no_hs_button');
 });
 
 $(function() {
-//    $('#county_state_hover_msg').html("Hover over the map for more info about a county");
     $('#pop').html("&nbsp;");
-    $(".checkbox").hide("fast");
+    $(".checkbox_label").hide("fast");
     $("#sliders").hover(
         function() {
-            $(".checkbox").fadeIn();
+            $(".checkbox_label").show();
         },
         function() {
-            $(".checkbox").hide();
+            $(".checkbox_label").hide("fast");
         }
     );
 });
@@ -153,7 +165,6 @@ $(function() {
 */
 
 function redraw() {
-  console.log(d3.event.scale);
   svg.attr("transform",
       "translate(" + d3.event.translate + ")" +
       "scale(" + d3.event.scale + ")");

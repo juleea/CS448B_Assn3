@@ -11,6 +11,48 @@ h1 {
   text-align: center;
 }
 
+.ui-button {
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 14px !important;
+}
+
+#female_headed_button.ui-state-active {
+  background: #08519C;
+}
+
+#poverty_children_button.ui-state-active {
+  background: #756BB1;
+}
+
+#no_hs_button.ui-state-active {
+  background: #C51B8A;
+}
+
+#female_headed_button:hover {
+  background: #08519C;
+}
+
+#poverty_children_button:hover {
+  background: #756BB1;
+}
+
+#no_hs_button:hover {
+  background: #C51B8A;
+}
+
+#female_headed_button {
+  border: 2px #444 solid;
+}
+
+#poverty_children_button {
+  border: 2px #444 solid;
+}
+
+#no_hs_button {
+  border: 2px #444 solid;
+}
+
 .viz_info {
   font-size: 15pt;
   padding-bottom: 30px;
@@ -306,12 +348,12 @@ body {
 	float:right;
 	padding-top:2px;
 	font-size: 14px;
+	width: 15px;
+	height: 15px;
 }
 
 .checkbox {
-	float:left;
-	height:25px;
-	width:25px;
+	float:left;f
 	margin-left: 5px;
 }
 
