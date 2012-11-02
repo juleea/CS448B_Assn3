@@ -1,10 +1,9 @@
 svg {
   background: #555;
-  width: 959px;
-  height: 500px;
-  border: 1px solid rgb(49, 130, 189);
-#border: 1px solid rgb(49, 163, 84);
-#border-radius: 15px;
+  width: 1059px;
+  height: 530px;
+  border: 1px solid rgb(49, 163, 84);
+  border-radius: 15px;
   cursor:crosshair;
 }
 
@@ -23,8 +22,14 @@ h1 {
   text-align: center;
 }
 
+.slider_tag {
+  width: 300px;
+  margin-top: 20px;
+  float: left;  
+}
+
 .slider_and_stats_container {
-  padding-bottom: 15px;
+  margin-bottom: 88px;
   clear:both;
 }
 
@@ -32,13 +37,12 @@ h1 {
   padding-bottom: 5px;
 }
 
-
 #sliders .instructions {
 	font-size: 12px;
 }
 
 .slider_label {
-  font-size:20px;
+  font-size:18px;
 }
 
 .slider_label_range {	
@@ -51,32 +55,35 @@ h1 {
 .slider_checkbox_stats {
   width: 70px;
   float: right;
-  height: 70px;
+  height: 35px;
   padding-top: 10px;
 }
 
 .slider_container {
-  width: 300px;
+  width: 400px;
   float: left;
   margin-bottom: 20px;
 }
 
-#country_state_pop {
-  padding-bottom: 40px;
-  font-size: 20px;
-  height: 40px;
+#county_state_hover_msg {
+  font-style: italic;
+  padding-bottom: 10px;  
 }
 
-#county_state {
+#county_state_pop {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 1px dashed rgb(49,130,189);
+}
+
+#county_state_wrapper {
   width: 270px;
   float: left;
-  font-size: 15pt;
 }
 
-#pop {
+#pop_wrapper {
   position: relative;
-  font-size: 15pt;
-  border-bottom: 1px dashed rgb(49, 130, 189);
 }
 
 #counties path {
@@ -302,9 +309,10 @@ body {
 }
 
 .checkbox {
-	float:right;
-	height:20px;
-	width:20px;
+	float:left;
+	height:25px;
+	width:25px;
+	margin-left: 5px;
 }
 
 .legend_span { float: left; font-size: 12px; padding-left: 1px;}

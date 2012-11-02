@@ -29,8 +29,8 @@ d3.json("js/us-counties.json", function(json) {
       .attr("class", data ? quantize : null) // color counties
       .attr("d", path)
       .on("mouseover", function(d){
-        $('#county_state').html(data[d.id]["county"] + " County, " + data[d.id]["state"]);
-        $('#pop').html("Pop: " + data[d.id]["population"]);
+        $('#county_state').html(data[d.id]["county"] + ", " + data[d.id]["state"]);
+        $('#pop').html(data[d.id]["population"]);
         $('#info_name').html(data[d.id]["county"]);
         $('#info_state').html(data[d.id]["state"]);
         $('#info_population').html("<b>" + data[d.id]["population"] + "</b>");
@@ -43,7 +43,6 @@ d3.json("js/us-counties.json", function(json) {
       .on("mousemove", function(d){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+15)+"px").text(data[d.id]["name"]);})
       .on("mouseout", function(){
 
-        $('#county_state_hover_msg').html("<i>Hover over the map for more info about a county</i>");
         $('#county_state').html("&nbsp");
         $('#pop').html("&nbsp");
         $('#info_name').html("&nbsp");
@@ -121,7 +120,13 @@ function quantize(d) {
 }
 
 $(function() {
-    $('#county_state').html("Hover over county for more info");
+  console.log("special checkboxes");
+//  $('input').ezMark();
+	$('input[type="checkbox"]').ezMark({checkboxCls: 'ez-checkbox-green', checkedCls: 'ez-checked-green'})
+});
+
+$(function() {
+//    $('#county_state_hover_msg').html("Hover over the map for more info about a county");
     $('#pop').html("&nbsp;");
     $(".checkbox").hide("fast");
     $("#sliders").hover(
@@ -148,9 +153,10 @@ $(function() {
 */
 
 function redraw() {
+  console.log(d3.event.scale);
   svg.attr("transform",
-      "translate(" + d3.event.translate + ")"
-      + "scale(" + d3.event.scale + ")");
+      "translate(" + d3.event.translate + ")" +
+      "scale(" + d3.event.scale + ")");
 }
 
 function adjust_range(stat, min, max) {
@@ -161,9 +167,9 @@ function adjust_range(stat, min, max) {
 }
 
 //init "hover" message
-$(function(){
-  $('#county_state').html("<i>Hover over the map for more info about a county</i>");
-});
+//$(function(){
+//  $('#county_state_hover_msg').html("<i>Hover over the map for more info about a county</i>");
+//});
 
 
 // Create female_headed slider

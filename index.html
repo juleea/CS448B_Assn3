@@ -9,7 +9,9 @@
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
       <script type="text/javascript" src="js/slider.js"></script>
+      <script type="text/javascript" src="js/jquery.ezmark.min.js"></script>
       <link type="text/css" rel="stylesheet" href="css/style.css"/>
+      <link rel="stylesheet" href="css/ezmark.css" media="all">
       <link type="text/css" rel="stylesheet" href="css/colorbrewer.css"/>
       <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/ui-darkness/jquery-ui.css" />
       <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
@@ -17,19 +19,18 @@
   <body>
   <div id="container">
     <div id="top_bar">
-      <h1>Census 2010 (change this!)</h1>
+      <h1>All the Single Mothers: ...something about visualizing female household census data...</h1>
       <div class="viz_info">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+           In the United States, the number of children in single-mother families has risen dramatically over the past four decades, causing considerable concern among policymakers and the public.1 Researchers have identified the rise in single-parent families (especially mother-child families) as a major factor driving the long-term increase in child poverty in the United States. The effects of growing up in single-parent households have been shown to go beyond economics, increasing the risk of children dropping out of school, disconnecting from the labor force, and becoming teen parents. Although many children growing up in single-parent families succeed, others will face significant challenges in making the transition to adulthood. Children in lower-income, single-parent families face the most significant barriers to success in school and the work force.
       </div>
     </div>
     
     <div id="bottom_bar">
         <div id="sliders">
             <div id="county_state_pop">
-                <div id="county_state_hover_msg"></div>
-                <div id="county_state"></div>
-                <div id="pop"></div>
+                <div id="county_state_hover_msg">Hover over the map for more info about a county</div>
+                <div id="county_state_wrapper">County:&nbsp&nbsp<span id="county_state"></span></div>
+                <div id="pop_wrapper">Pop:&nbsp&nbsp<span id="pop"></span></div>
             </div>
             <div class="slider_and_stats_container" id="female_headed_slider_container">
                 <div class="slider_container">
@@ -37,26 +38,42 @@
                         <label for="female_headed_amount" id="female_headed_label" class="slider_label">% Female Headed Households&sup1;:</label>
                         <b><span id="female_headed_amount" class="slider_label_range">30% - 40%</span></b>        
                     </div>
-                    <div id="female_headed_slider" style=""></div>
+                    <div class="slider_tag" id="female_headed_slider" style=""></div>
+                    <div class="slider_checkbox_stats">
+                        <input type=checkbox class="checkbox" id="female_headed_checkbox" checked=true> </input><label class="checkbox_label"></label>
+                        <span class="info_value" id="info_female_headed">&nbsp</span>
+                    </div>
+                </div>
+
+            </div>
+<!--            <div class="slider_and_stats_container" id="female_headed_slider_container">
+                <div class="slider_container">
+                    <div class="slider_label_amount">                    
+                        <label for="female_headed_amount" id="female_headed_label" class="slider_label">% Female Headed Households&sup1;:</label>
+                        <b><span id="female_headed_amount" class="slider_label_range">30% - 40%</span></b>        
+                    </div>
+                    <div  class="slider_tag" id="female_headed_slider" style=""></div>
                 </div>
                 <div class="slider_checkbox_stats">
                     <input type=checkbox class="checkbox" id="female_headed_checkbox" checked=true> </input><label class="checkbox_label"></label>
                     <span class="info_value" id="info_female_headed">&nbsp</span>
                 </div>
             </div>
+-->
 
             <div class="slider_and_stats_container" id="poverty_children_slider_container">
                 <div class="slider_container">
                     <div class="slider_label_amount">
-                        <label for="poverty_children_amount" id="poverty_children_label" class="slider_label">Poverty Rate (0-17)&sup1;:</label>
+                        <label for="poverty_children_amount" id="poverty_children_label" class="slider_label">Child Poverty Rate&sup1;:</label>
                         <b><span id="poverty_children_amount" class="slider_label_range">15% - 20%</span></b>
                     </div>
-                    <div id="poverty_children_slider" style=""></div>                    
+                    <div  class="slider_tag" id="poverty_children_slider" style=""></div>                    
+                    <div class="slider_checkbox_stats">
+                        <input type=checkbox class="checkbox" id="poverty_children_checkbox" > </input><label class="checkbox_label"></label>
+                        <span class="info_value" id="info_poverty_children">&nbsp</span>
+                    </div>
                 </div>
-                <div class="slider_checkbox_stats">
-                    <input type=checkbox class="checkbox" id="poverty_children_checkbox"> </input><label class="checkbox_label"></label>
-                    <span class="info_value" id="info_poverty_children">&nbsp</span>
-                </div>
+
             </div>
 
 
@@ -86,13 +103,13 @@
                     <label for="no_hs_amount" id="no_hs_label" class="slider_label">% with no high school&sup1;:</label>
                     <b><span id="no_hs_amount" class="slider_label_range  ">15% - 20%</span></b>
                   </div>
-                  <div id="no_hs_slider" style=""></div>
+                  <div  class="slider_tag" id="no_hs_slider" style=""></div>
+                  <div class="slider_checkbox_stats">
+                    <input type=checkbox class="checkbox" id="no_hs_checkbox"> </input><label class="checkbox_label"></label>
+                    <span class="info_value" id="info_no_hs">&nbsp</span>
+                  </div>
               </div>
-              <div class="slider_checkbox_stats">
-                <input type=checkbox class="checkbox" id="no_hs_checkbox"> </input><label class="checkbox_label"></label>
-                <span class="info_value" id="info_no_hs">&nbsp</span>
-              </div>
-        </div>
+            </div>
         </div>
       <div id="chart" class="Purples"> </div>
 
