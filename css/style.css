@@ -2,9 +2,81 @@ svg {
   background: #555;
   width: 959px;
   height: 500px;
-  border: 1px solid rgb(49, 163, 84);
-  border-radius: 15px;
+  border: 1px solid rgb(49, 130, 189);
+#border: 1px solid rgb(49, 163, 84);
+#border-radius: 15px;
   cursor:crosshair;
+}
+
+h1 {
+  text-align: center;
+}
+
+.viz_info {
+  font-size: 15pt;
+  padding-bottom: 30px;
+}
+
+.info_value {
+  font-size: 20pt;
+  color: white;
+  text-align: center;
+}
+
+.slider_and_stats_container {
+  padding-bottom: 15px;
+  clear:both;
+}
+
+.slider_label_amount {
+  padding-bottom: 5px;
+}
+
+
+#sliders .instructions {
+	font-size: 12px;
+}
+
+.slider_label {
+  font-size:20px;
+}
+
+.slider_label_range {	
+  font-size:20px;
+	border: 0px;
+	width: 150px;
+	background: none;
+}
+
+.slider_checkbox_stats {
+  width: 70px;
+  float: right;
+  height: 70px;
+  padding-top: 10px;
+}
+
+.slider_container {
+  width: 300px;
+  float: left;
+  margin-bottom: 20px;
+}
+
+#country_state_pop {
+  padding-bottom: 40px;
+  font-size: 20px;
+  height: 40px;
+}
+
+#county_state {
+  width: 270px;
+  float: left;
+  font-size: 15pt;
+}
+
+#pop {
+  position: relative;
+  font-size: 15pt;
+  border-bottom: 1px dashed rgb(49, 130, 189);
 }
 
 #counties path {
@@ -26,16 +98,6 @@ svg {
 	fill:#eee;
 }
 
-#sliders .instructions {
-	font-size: 12px;
-}
-
-.slider_label {	
-#font-size:20px;
-	border: 0px;
-	width: 150px;
-	background: none;
-}
 
 #female_headed_slider_container p {
 	margin: 10px 0px 5px 0px;
@@ -169,17 +231,17 @@ body {
 #chart {
 	cursor: crosshair;
 	position: relative;
-	margin-top: 20px;
+	float:left;
 }
 
 #sliders {
 	float:left;
-	width: 46%;
 	background: #111;
 	padding: 15px;
 	border: 2px solid rgb(117, 107, 177);
 	border-radius: 15px;
-	height: 390px;
+	width: 400px;
+	height: 470px;
 }
 
 #county_info {
@@ -226,10 +288,11 @@ body {
 }
 
 #container{
-	width:962px;
 	margin-left:auto;
 	margin-right:auto;
 	position: relative;
+  width: 1500px;
+
 }
 
 .checkbox_label{
@@ -316,10 +379,6 @@ body {
 
 #title p {
 	margin: 0px 0px 10px 0px;
-}
-
-#top_bar {
-	height:212px;
 }
 
 #map_note {

@@ -16,30 +16,51 @@
   </head>
   <body>
   <div id="container">
-      <div id="chart" class="Purples"> </div>
-      <br/>
     <div id="top_bar">
+      <h1>Census 2010 (change this!)</h1>
+      <div class="viz_info">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+    
+    <div id="bottom_bar">
         <div id="sliders">
-            <div id="female_headed_slider_container">
-                <p>
-                <label for="female_headed_amount" id="female_headed_label">Percentage of Female Headed Households&sup1;:</label>
-                <b><span id="female_headed_amount" class="slider_label">30% - 40%</span></b>
-                <input type=checkbox class="checkbox" id="female_headed_checkbox" checked=true> </input><label class="checkbox_label"></label>
-                </p>
-            <div id="female_headed_slider" style=""></div>
+            <div id="county_state_pop">
+                <div id="county_state_hover_msg"></div>
+                <div id="county_state"></div>
+                <div id="pop"></div>
+            </div>
+            <div class="slider_and_stats_container" id="female_headed_slider_container">
+                <div class="slider_container">
+                    <div class="slider_label_amount">                    
+                        <label for="female_headed_amount" id="female_headed_label" class="slider_label">% Female Headed Households&sup1;:</label>
+                        <b><span id="female_headed_amount" class="slider_label_range">30% - 40%</span></b>        
+                    </div>
+                    <div id="female_headed_slider" style=""></div>
+                </div>
+                <div class="slider_checkbox_stats">
+                    <input type=checkbox class="checkbox" id="female_headed_checkbox" checked=true> </input><label class="checkbox_label"></label>
+                    <span class="info_value" id="info_female_headed">&nbsp</span>
+                </div>
             </div>
 
-        <div id="poverty_children_slider_container">
-                <p>
-                <label for="poverty_children_amount" id="poverty_children_label">Poverty Rate (0-17)&sup1;:</label>
-                <b><span id="poverty_children_amount" class="slider_label">15% - 20%</span></b>
-                <input type=checkbox class="checkbox" id="poverty_children_checkbox" checked=true> </input><label class="checkbox_label"></label>
-                </p>
-            <div id="poverty_children_slider" style=""></div>
+            <div class="slider_and_stats_container" id="poverty_children_slider_container">
+                <div class="slider_container">
+                    <div class="slider_label_amount">
+                        <label for="poverty_children_amount" id="poverty_children_label" class="slider_label">Poverty Rate (0-17)&sup1;:</label>
+                        <b><span id="poverty_children_amount" class="slider_label_range">15% - 20%</span></b>
+                    </div>
+                    <div id="poverty_children_slider" style=""></div>                    
+                </div>
+                <div class="slider_checkbox_stats">
+                    <input type=checkbox class="checkbox" id="poverty_children_checkbox"> </input><label class="checkbox_label"></label>
+                    <span class="info_value" id="info_poverty_children">&nbsp</span>
+                </div>
             </div>
 
 
-          <div id="poverty_slider_container">
+<!--          <div id="poverty_slider_container">
                 <p>
                 <label for="poverty_amount" id="poverty_label">Poverty&sup1;:</label>
                 <b><span id="poverty_amount" class="slider_label">15% - 20%</span></b>
@@ -47,9 +68,9 @@
                 </p>
             <div id="poverty_slider" style=""></div>
             </div>
+-->
 
-
-          <div id="unemployment_slider_container">
+<!--          <div id="unemployment_slider_container">
                 <p>
                 <label for="unemployment_amount" id="unemployment_label">Unemployment&sup1;:</label>
                 <b><span id="unemployment_amount" class="slider_label">15% - 20%</span></b>
@@ -57,20 +78,26 @@
                 </p>
             <div id="unemployment_slider" style=""></div>
             </div>
+-->
 
-
-          <div id="no_hs_slider_container">
-                <p>
-                <label for="no_hs_amount" id="no_hs_label">Percentage with no high school&sup1;:</label>
-                <b><span id="no_hs_amount" class="slider_label">15% - 20%</span></b>
+          <div class="slider_and_stats_container" id="no_hs_slider_container">
+              <div class="slider_container">
+                  <div class="slider_label_amount">
+                    <label for="no_hs_amount" id="no_hs_label" class="slider_label">% with no high school&sup1;:</label>
+                    <b><span id="no_hs_amount" class="slider_label_range  ">15% - 20%</span></b>
+                  </div>
+                  <div id="no_hs_slider" style=""></div>
+              </div>
+              <div class="slider_checkbox_stats">
                 <input type=checkbox class="checkbox" id="no_hs_checkbox"> </input><label class="checkbox_label"></label>
-                </p>
-            <div id="no_hs_slider" style=""></div>
+                <span class="info_value" id="info_no_hs">&nbsp</span>
+              </div>
         </div>
         </div>
+      <div id="chart" class="Purples"> </div>
 
 
-        <div id="county_info">
+<!--        <div id="county_info">
             <p class="p_additional">Additional info (mouse over a county for detailed info):</p>
             <p id="p_info_county">County: <b><span id="info_name">&nbsp</span></b></p>
             <p id="p_info_state">State: <b><span id="info_state">&nbsp</span></b></p>
@@ -81,6 +108,7 @@
             <p>Unemployment Rate&sup2;: <span id="info_unemployment">&nbsp</span></p>
             <p>Percentage of Population with No HS&sup2;: <span id="info_no_hs">&nbsp</span></p>
         </div>
+-->
   </div>
   <script type="text/javascript" src="js/stats.js"></script>
   </body>

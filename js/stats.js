@@ -29,26 +29,28 @@ d3.json("js/us-counties.json", function(json) {
       .attr("class", data ? quantize : null) // color counties
       .attr("d", path)
       .on("mouseover", function(d){
+        $('#county_state').html(data[d.id]["county"] + " County, " + data[d.id]["state"]);
+        $('#pop').html("Pop: " + data[d.id]["population"]);
         $('#info_name').html(data[d.id]["county"]);
         $('#info_state').html(data[d.id]["state"]);
         $('#info_population').html("<b>" + data[d.id]["population"] + "</b>");
         $('#info_female_headed').html("<b>" + data[d.id]["female_headed"] + "%</b>");
         $('#info_poverty_children').html("<b>" + data[d.id]["poverty_children"] + "%</b>");        
-        $('#info_poverty').html("<b>" + data[d.id]["poverty"] + "%</b>");        
-        $('#info_unemployment').html("<b>" + data[d.id]["unemployment"] + "%</b>");        
         $('#info_no_hs').html("<b>" + data[d.id]["no_hs"] + "%</b>");        
         d3.select(this).style("opacity", ".5");
         return tooltip.style("visibility", "visible");
       })
       .on("mousemove", function(d){return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+15)+"px").text(data[d.id]["name"]);})
       .on("mouseout", function(){
+
+        $('#county_state_hover_msg').html("<i>Hover over the map for more info about a county</i>");
+        $('#county_state').html("&nbsp");
+        $('#pop').html("&nbsp");
         $('#info_name').html("&nbsp");
         $('#info_state').html("&nbsp");
         $('#info_population').html("&nbsp");
         $('#info_female_headed').html("&nbsp");
         $('#info_poverty_children').html("&nbsp");  
-        $('#info_poverty').html("&nbsp");  
-        $('#info_unemployment').html("&nbsp");  
         $('#info_no_hs').html("&nbsp");  
         d3.select(this).style("opacity", "1");
         return tooltip.style("visibility", "hidden");
@@ -69,7 +71,7 @@ d3.json("js/data.json", function(json) {
 
 params = {
 female_headed: {color:"Bluesq",min:0,max:45,set_max:45},
-poverty_children: {color:"q",min:0,max:60,set_max:60},
+poverty_children: {color:"q",min:0,max:62,set_max:62},
 poverty: {color:"Redsq",min:0,max:51,set_max:51},
 unemployment: {color:"Greensq",min:0,max:30,set_max:30},
 no_hs: {color:"RdPuq",min:0,max:55,set_max:55}
@@ -118,7 +120,32 @@ function quantize(d) {
   }
 }
 
+$(function() {
+    $('#county_state').html("Hover over county for more info");
+    $('#pop').html("&nbsp;");
+    $(".checkbox").hide("fast");
+    $("#sliders").hover(
+        function() {
+            $(".checkbox").fadeIn();
+        },
+        function() {
+            $(".checkbox").hide();
+        }
+    );
+});
 
+/**
+$(function() {
+    $("#chart").hover(
+      function() {
+          $('#info_female_headed').html("<b>--</b>");
+          $('#info_poverty_children').html("<b>--</b>");        
+          $('#info_poverty').html("<b>" + data[d.id]["poverty"] + "%</b>");        
+          $('#info_unemployment').html("<b>--</b>");        
+          $('#info_no_hs').html("<b>--</b>");        
+    })
+  });
+*/
 
 function redraw() {
   svg.attr("transform",
@@ -132,6 +159,12 @@ function adjust_range(stat, min, max) {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
 }
+
+//init "hover" message
+$(function(){
+  $('#county_state').html("<i>Hover over the map for more info about a county</i>");
+});
+
 
 // Create female_headed slider
 $(function(){
@@ -148,6 +181,7 @@ $(function(){
       adjust_range("female_headed",ui.values[0], ui.values[1]);
         }
   });
+  
 });
 
 // Create poverty_children slider
@@ -158,13 +192,17 @@ $(function(){
     range: true,
     rangeDrag: true,
     min:0,
-    max:60,
-    values: [45, 60],
+    max:62,
+    values: [45, 62],
     slide: function( event, ui ) {
       $( "#poverty_children_amount" ).html( ui.values[0] + "% - " + ui.values[1] + "%");
       adjust_range("poverty_children",ui.values[0], ui.values[1]);
         }
   });
+$('#poverty_children_label').fadeTo('slow', 0.5, null);
+    $('#poverty_children_amount').fadeTo('slow', 0.5, null);
+    $('#poverty_children_slider').fadeTo('slow', 0.5, null);
+    $('#poverty_children_slider').dragslider("option", "disabled", true);
 });
 
 // Create female_headed slider
@@ -221,6 +259,10 @@ $(function(){
       adjust_range("no_hs", ui.values[0], ui.values[1]);
         }
   });
+    $('#no_hs_label').fadeTo('slow', 0.5, null);
+    $('#no_hs_amount').fadeTo('slow', 0.5, null);
+    $('#no_hs_slider').fadeTo('slow', 0.5, null);
+    $('#no_hs_slider').dragslider("option", "disabled", true);
 });
 
 
