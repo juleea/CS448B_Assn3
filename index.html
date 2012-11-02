@@ -19,13 +19,13 @@
   <body>
   <div id="container">
     <div id="top_bar">
-      <h1>All the Single Mothers: Implications of Female Headed Households</h1>
+      <h1>Socioeconomic Implications of Single Parent Families</h1>
       <div class="viz_info">
-           In the United States, the number of children in <span class="female">single-mother families</span> has risen dramatically over the past four decades.<br>
            Researchers have identified the rise in single-parent families (especially mother-child families) as a major factor driving the long-term increase in <span class="poverty_children">child poverty in the United States</span>.<br>
            Growing up in single-parent households has been shown to increase the risk of children <span class="no_hs">dropping out of school</span>, disconnecting from the labor force, and becoming teen parents.<br>
           <!-- Although many children growing up in single-parent families succeed, others will face significant challenges in making the transition to adulthood.<br>-->
-           Children in <span class="income">lower-income</span>, single-parent families face the most significant barriers to success in school and the work force.
+           Children in <span class="income">lower-income</span>, single-parent families face the most significant barriers to success in school and the work force.<br>
+           In the United States, the number of children in <span class="female">single-mother families</span> has risen dramatically over the past four decades. Examine these developments below:<br>
       </div>
     </div>
     <div id="bottom_bar">
@@ -38,7 +38,7 @@
             <div class="slider_and_stats_container" id="female_headed_slider_container">
                 <div class="slider_container">
                     <div class="slider_label_amount">
-                        <label for="female_headed_amount" id="female_headed_label" class="slider_label">% Female Headed Households&sup1;:</label>
+                        <label for="female_headed_amount" id="female_headed_label" class="slider_label">% Female Headed Households:</label>
                         <b><span id="female_headed_amount" class="slider_label_range">20% - 40%</span></b>
                     </div>
                     <div class="slider_tag" id="female_headed_slider" style=""></div>
@@ -52,12 +52,12 @@
             <div class="slider_and_stats_container" id="poverty_children_slider_container">
                 <div class="slider_container">
                     <div class="slider_label_amount">
-                        <label for="poverty_children_amount" id="poverty_children_label" class="slider_label">Child Poverty Rate&sup1;:</label>
+                        <label for="poverty_children_amount" id="poverty_children_label" class="slider_label">Child Poverty Rate:</label>
                         <b><span id="poverty_children_amount" class="slider_label_range">35% - 62%</span></b>
                     </div>
                     <div  class="slider_tag" id="poverty_children_slider" style=""></div>                    
                     <div class="slider_checkbox_stats">
-                        <input type=checkbox class="checkbox" id="poverty_children_checkbox" > </input><label class="checkbox_label" for="poverty_children_checkbox"></label>
+                        <input type=checkbox class="checkbox" id="poverty_children_checkbox" checked="true"> </input><label class="checkbox_label" for="poverty_children_checkbox"></label>
                         <span class="info_value" id="info_poverty_children">&nbsp</span>
                     </div>
                 </div>
@@ -66,12 +66,12 @@
           <div class="slider_and_stats_container" id="no_hs_slider_container">
               <div class="slider_container">
                   <div class="slider_label_amount">
-                    <label for="no_hs_amount" id="no_hs_label" class="slider_label">% with no high school&sup1;:</label>
+                    <label for="no_hs_amount" id="no_hs_label" class="slider_label">% with no high school:</label>
                     <b><span id="no_hs_amount" class="slider_label_range  ">25% - 55%</span></b>
                   </div>
                   <div  class="slider_tag" id="no_hs_slider" style=""></div>
                   <div class="slider_checkbox_stats">
-                    <input type=checkbox class="checkbox" id="no_hs_checkbox"> </input><label class="checkbox_label" for="no_hs_checkbox"></label>
+                    <input type=checkbox class="checkbox" id="no_hs_checkbox" disabled="true"> </input><label class="checkbox_label" for="no_hs_checkbox"></label>
                     <span class="info_value" id="info_no_hs">&nbsp</span>
                   </div>
               </div>
@@ -80,7 +80,7 @@
             <div class="slider_and_stats_container" id="income_slider_container">
                 <div class="slider_container">
                     <div class="slider_label_amount">
-                        <label for="income_amount" id="income_label" class="slider_label">Median Household Income&sup2;:</label>
+                        <label for="income_amount" id="income_label" class="slider_label">Median Household Income</label>
                         <b><span id="income_amount" class="slider_label_range">$18000 - $35000</span></b>
                     </div>
                     <div  class="slider_tag" id="income_slider" style=""></div>
@@ -95,6 +95,13 @@
 
         </div>
       <div id="chart" class="Purples"> </div>
+      <div id="footer">
+      All data from <a href="http://www.ers.usda.gov/data-products/atlas-of-rural-and-small-town-america/download-the-data.aspx" target="_blank">USDA Economic Research Service</a><br>
+      Percent of female headed family households (out of total family households): 2006-2010, where a female headed family household represents a household headed by a female with no husband present<br>
+      Child poverty rate: 2010, where the child poverty rate is the percent of county population under age 17 living in families with income below their poverty threshold<br>
+      Percent with no high school degree: 2006-2010, where the highest completed level of schooling was 12th grade or lower<br>
+      Median household income: 2010
+      </div>
   </div>
   <script type="text/javascript" src="js/stats.js"></script>
   </body>

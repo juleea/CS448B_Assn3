@@ -482,3 +482,8 @@ ul#references {
 	padding-left:25px;
 
 }
+
+a {
+    color: rgb(158, 202, 225);
+   text-decoration: none;
+}

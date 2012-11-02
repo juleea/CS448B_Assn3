@@ -27,7 +27,6 @@ var numChecked = 2;
 d3.json("js/us-counties.json", function(json) {
   var getInfo = function(id, type) {
     var val = data[id][type];
-    console.log(val);
     if (val == undefined || val == "") {
       val = "--";
     }
@@ -108,12 +107,6 @@ function quantize(d) {
         stats.push("no_hs");
       }
   }
-    /*if ($('#poverty_checkbox').is(':checked')) {
-      if (county_data["poverty"] >= params["poverty"]["min"] && county_data["poverty"] <= params["poverty"]["max"]) {
-        stats.push("poverty");
-      }
-  }
-  */
     if ($('#unemployment_checkbox').is(':checked')) {
       if (county_data["unemployment"] >= params["unemployment"]["min"] && county_data["unemployment"] <= params["unemployment"]["max"]) {
         stats.push("unemployment");
@@ -252,14 +245,40 @@ $(function(){
 
 });
 
+function enableCheckboxes() {
+    var boxes = document.getElementsByClassName("checkbox");
+    for (var i = 0; i < boxes.length - 1; i++) {
+        if (!boxes[i].checked) {
+            boxes[i].disabled = "false";
+        }
+    }
 
+    var boxes = document.getElementsByClassName("checkbox_label");
+    for (var i = 0; i < boxes.length - 1; i++) {
+        boxes[i].control.disabled = "false";
+    }
+}
+
+
+function disableCheckboxes() {
+    var boxes = document.getElementsByClassName("checkbox");
+    for (var i = 0; i < boxes.length - 1; i++) {
+        if (!boxes[i].checked) {
+            boxes[i].disabled = "true";
+        }
+    }
+    var boxes = document.getElementsByClassName("checkbox_label");
+    for (var i = 0; i < boxes.length - 1; i++) {
+        if (!boxes[i].control.checked) {
+            boxes[i].control.disabled = "true";
+        }
+    }
+}
 
 // Code for checkboxes
 $(document).ready(function() {
-        console.log(numChecked);
 
 $('#poverty_children_checkbox').change(function() {
-        console.log(numChecked);
   if (numChecked < 2 && $('#poverty_children_checkbox').is(':checked')) {
     numChecked++;
     $('#poverty_children_slider').dragslider("option", "disabled", false);
@@ -268,6 +287,7 @@ $('#poverty_children_checkbox').change(function() {
     $('#poverty_children_slider').fadeTo('slow', 1, null);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
+  disableCheckboxes();
   } else {
     numChecked--;
     $('#poverty_children_label').fadeTo('slow', 0.5, null);
@@ -277,6 +297,9 @@ $('#poverty_children_checkbox').change(function() {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
       $('.checkbox').attr("disabled", false);
+      enableCheckboxes();
+  $('#no_hs_button').attr('aria-disabled', 'false');
+      //$('.checkbox-label').attr("disabled", false);
   }
 });
 
@@ -290,6 +313,7 @@ $('#income_checkbox').change(function() {
     $('#income_slider').fadeTo('slow', 1, null);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
+  disableCheckboxes();
   } else {
     numChecked--;
     $('#income_label').fadeTo('slow', 0.5, null);
@@ -299,6 +323,7 @@ $('#income_checkbox').change(function() {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
       $('.checkbox').attr("disabled", false);
+      enableCheckboxes();
   }
 });
 
@@ -311,7 +336,8 @@ $('#female_headed_checkbox').change(function() {
     $('#female_headed_slider').fadeTo('slow', 1, null);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
-  } else {
+  disableCheckboxes();
+  } else if ($('#female_headed_checkbox').css('opacity') != 0.5) {
     numChecked--;
     $('#female_headed_label').fadeTo('slow', 0.5, null);
     $('#female_headed_amount').fadeTo('slow', 0.5, null);
@@ -320,6 +346,7 @@ $('#female_headed_checkbox').change(function() {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
       $('.checkbox').attr("disabled", false);
+      enableCheckboxes();
   }
 });
 
@@ -332,7 +359,8 @@ $('#no_hs_checkbox').change(function() {
     $('#no_hs_slider').fadeTo('slow', 1, null);
     counties.selectAll("path")
       .attr("class", quantize); // recolor
-    $('#no_hs_checxbox').attr('disabled', true);
+    $('#no_hs_checkbox').attr('disabled', true);
+  disableCheckboxes();
   } else if ($('#no_hs_slider').css('opacity') != 0.5) {
     numChecked--;
     $('#no_hs_label').fadeTo('slow', 0.5, null);
@@ -342,6 +370,7 @@ $('#no_hs_checkbox').change(function() {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
       $('.checkbox').attr("disabled", false);
+      enableCheckboxes();
   }
 });
 
