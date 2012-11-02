@@ -13482,7 +13482,7 @@
     "over_65": "15.8", 
     "under_18": "22.0", 
     "poverty_children": "19.8", 
-    "county": "Wrangell City and Borough", 
+    "county": "Wrangell City", 
     "state": "AK", 
     "female_headed": "14.3", 
     "black": "0.2", 
@@ -22314,7 +22314,7 @@
   "02201": {
     "unemployment": "", 
     "poverty_children": "", 
-    "county": "Prince of Wales-Outer Ketchikan", 
+    "county": "Outer Ketchikan", 
     "state": "AK", 
     "poverty": "", 
     "income": ""
@@ -30198,7 +30198,7 @@
     "over_65": "11.4", 
     "under_18": "23.5", 
     "poverty_children": "11.8", 
-    "county": "Sitka City and Borough", 
+    "county": "Sitka City", 
     "state": "AK", 
     "female_headed": "8.7", 
     "black": "0.5", 
@@ -33650,7 +33650,7 @@
   "02232": {
     "unemployment": "", 
     "poverty_children": "", 
-    "county": "Skagway-Hoonah-Angoon", 
+    "county": "Hoonah-Angoon", 
     "state": "AK", 
     "poverty": "", 
     "income": ""
@@ -46582,7 +46582,7 @@
     "over_65": "9.7", 
     "under_18": "24.5", 
     "poverty_children": "22.6", 
-    "county": "Yakutat City and Borough", 
+    "county": "Yakutat City",
     "state": "AK", 
     "female_headed": "8.2", 
     "black": "0.3", 
@@ -48870,7 +48870,7 @@
     "over_65": "8.4", 
     "under_18": "23.5", 
     "poverty_children": "10", 
-    "county": "Juneau City and Borough", 
+    "county": "Juneau City", 
     "state": "AK", 
     "female_headed": "11.8", 
     "black": "0.8", 
