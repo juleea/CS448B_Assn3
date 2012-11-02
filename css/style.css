@@ -13,6 +13,9 @@ h1 {
 }
 
 .ui-button {
+  margin-top: 9px !important;
+  margin-left: 35px;
+  float: left !important;
   width: 14px !important;
   height: 14px !important;
   border-radius: 14px !important;
@@ -50,9 +53,8 @@ h1 {
   background: #31A354;
 }
 
-.toggle_button {
-  border: 3px #444 solid !important;
-  margin-top: 7px;
+.radio_button {
+  border: 4px #AAA solid !important;
 }
 
 .viz_info {
@@ -61,14 +63,14 @@ h1 {
 }
 
 .info_value {
-  width: auto;
+  width: 100px;
   float: left;
   font-size: 18pt;
   color: white;
 }
 
 .slider_tag {
-  width: 260px;
+  width: 280px;
   margin-top: 20px;
   float: left;  
 }
@@ -292,9 +294,8 @@ h1 {
 }
 
 #info_income {
-#    font-size: 14pt;
+#  text-align: center;
 }
-
 
 .ui-disabled {
 	opacity:.5;
@@ -389,10 +390,14 @@ body {
 	height: 15px;
 }
 
-.checkbox {
-	float:left;f
-	margin-left: 5px;
+.radio {
+  float: left;
 }
+
+#.checkbox {
+#	float: left;
+#	margin-left: 5px;
+#}
 
 .legend_span { float: left; font-size: 12px; padding-left: 1px;}
 

@@ -59,7 +59,8 @@ d3.json("js/us-counties.json", function(json) {
         $('#info_name').html("&nbsp");
         $('#info_state').html("&nbsp");
         $('#info_population').html("&nbsp");
-        $('#info_female_headed').html("&nbsp");
+        $('#info_female_headed').html("<b>&nbsp&nbsp--%</b>");
+            //        $('#info_female_headed').html("&nbsp");
         $('#info_poverty_children').html("&nbsp");  
         $('#info_no_hs').html("&nbsp");  
         $('#info_income').html("&nbsp");  
@@ -140,14 +141,14 @@ function quantize(d) {
 
 $(function() {
   console.log("special checkboxes");
-  $("#female_headed_checkbox").button()
-  $('#female_headed_slider_container .slider_checkbox_stats label').attr('id', 'female_headed_button').addClass('toggle_button');
+//  $("#female_headed_checkbox").button()
+//  $('#female_headed_slider_container .slider_checkbox_stats label').attr('id', 'female_headed_button').addClass('radio_button');
   $("#poverty_children_checkbox").button()
-  $('#poverty_children_slider_container .slider_checkbox_stats label').attr('id', 'poverty_children_button').addClass('toggle_button');
+  $('#poverty_children_slider_container .slider_checkbox_stats label').attr('id', 'poverty_children_button').addClass('radio_button');
   $("#no_hs_checkbox").button();
-  $('#no_hs_slider_container .slider_checkbox_stats label').attr('id', 'no_hs_button').addClass('toggle_button');
+  $('#no_hs_slider_container .slider_checkbox_stats label').attr('id', 'no_hs_button').addClass('radio_button');
   $("#income_checkbox").button();
-  $('#income_slider_container .slider_checkbox_stats label').attr('id', 'income_button').addClass('toggle_button');
+  $('#income_slider_container .slider_checkbox_stats label').attr('id', 'income_button').addClass('radio_button');
 });
 
 $(function() {
@@ -255,16 +256,22 @@ $(function(){
 
 });
 
-
+var disableAll = function() {
+  console.log("disable all");
+    $('#poverty_children_slider').dragslider("option", "disabled", true);
+    $('#income_slider').dragslider("option", "disabled", true);
+    $('#no_hs_slider').dragslider("option", "disabled", true);
+};
 
 // Code for checkboxes
 $(document).ready(function() {
         console.log(numChecked);
 
 $('#poverty_children_checkbox').change(function() {
-        console.log(numChecked);
-  if (numChecked < 2 && $('#poverty_children_checkbox').is(':checked')) {
-    numChecked++;
+        console.log("poverty_children clicked " + numChecked);
+  if ($('#poverty_children_checkbox').is(':checked')) {
+    $('.slider_tag').dragslider("option", "disabled", true);
+    disableAll();
     $('#poverty_children_slider').dragslider("option", "disabled", false);
     $('#poverty_children_label').fadeTo('slow', 1, null);
     $('#poverty_children_amount').fadeTo('slow', 1, null);
@@ -284,9 +291,10 @@ $('#poverty_children_checkbox').change(function() {
 });
 
 $('#income_checkbox').change(function() {
-        console.log(numChecked);
-  if ( numChecked < 2 && $('#income_checkbox').is(':checked')) {
+        console.log("income clicked " + numChecked);
+  if ($('#income_checkbox').is(':checked')) {
     numChecked++;
+    disableAll();  
     $('#income_slider').dragslider("option", "disabled", false);
     $('#income_label').fadeTo('slow', 1, null);
     $('#income_amount').fadeTo('slow', 1, null);
@@ -303,11 +311,14 @@ $('#income_checkbox').change(function() {
       .attr("class", quantize); // recolor
       $('.checkbox').attr("disabled", false);
   }
+  $
+  
 });
 
+/**
 $('#female_headed_checkbox').change(function() {
-  if (numChecked < 2 && $('#female_headed_checkbox').is(':checked')) {
-    numChecked++;
+  if ($('#female_headed_checkbox').is(':checked')) {
+    $('.slider_tag').dragslider("option", "disabled", true);
     $('#female_headed_slider').dragslider("option", "disabled", false);
     $('#female_headed_label').fadeTo('slow', 1, null);
     $('#female_headed_amount').fadeTo('slow', 1, null);
@@ -315,7 +326,6 @@ $('#female_headed_checkbox').change(function() {
     counties.selectAll("path")
       .attr("class", quantize); // recolor
   } else {
-    numChecked--;
     $('#female_headed_label').fadeTo('slow', 0.5, null);
     $('#female_headed_amount').fadeTo('slow', 0.5, null);
     $('#female_headed_slider').fadeTo('slow', 0.5, null);
@@ -325,10 +335,13 @@ $('#female_headed_checkbox').change(function() {
       $('.checkbox').attr("disabled", false);
   }
 });
+*/
 
 $('#no_hs_checkbox').change(function() {
-  if (numChecked<2 && $('#no_hs_checkbox').is(':checked')) {
+        console.log("no_hs clicked " + numChecked);
+  if ($('#no_hs_checkbox').is(':checked')) {
     numChecked++;
+    disableAll();
     $('#no_hs_slider').dragslider("option", "disabled", false);
     $('#no_hs_label').fadeTo('slow', 1, null);
     $('#no_hs_amount').fadeTo('slow', 1, null);
